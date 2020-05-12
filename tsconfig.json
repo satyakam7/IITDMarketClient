@@ -1,18 +1,17 @@
 {
-  "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "outDir": "build",
+    "target": "es5",
     "lib": [
-      "ES5",
-      "ES6",
-      "ES7",
-      "DOM"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -21,7 +20,6 @@
     "jsx": "react"
   },
   "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
+    "src"
   ]
 }

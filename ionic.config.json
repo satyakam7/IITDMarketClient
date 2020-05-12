@@ -1,5 +1,7 @@
 {
-  "name": "IITDMarketClient",
-  "integrations": {},
+  "name": "iitd-marketplace",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }
