@@ -25,4 +25,4 @@ Proposal for a marketplace which can be used by IITD students to buy/sell items.
 - an option for Rent?
 
 ## Implementation details
-View the [Wiki](https://github.com/devlcub-iitd/IITDMarketClient/wiki) for frontend implementation details, workflow and sample designs.
+View the [Wiki](https://github.com/devclub-iitd/IITDMarketClient/wiki) for frontend implementation details, workflow and sample designs.
