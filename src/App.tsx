@@ -1,19 +1,20 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import {
-    IonApp,
-    IonIcon,
-    IonLabel,
-    IonRouterOutlet,
-    IonTabBar,
-    IonTabButton,
-    IonTabs,
+  IonApp,
+  IonIcon,
+  IonLabel,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import { chatboxOutline, gridOutline,home,personOutline, } from 'ionicons/icons';
+import Home from './pages/home';
+import Categories from './pages/categories';
+import Chats from './pages/chats';
+import MyAccount from './pages/myaccount';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -35,36 +36,37 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 const App: React.FC = () => (
-    <IonApp>
-        <IonReactRouter>
-            <IonTabs>
-                <IonRouterOutlet>
-                    <Route path="/tab1" component={Tab1} exact />
-                    <Route path="/tab2" component={Tab2} exact />
-                    <Route path="/tab3" component={Tab3} />
-                    <Route
-                        path="/"
-                        render={() => <Redirect to="/tab1" />}
-                        exact
-                    />
-                </IonRouterOutlet>
-                <IonTabBar slot="bottom">
-                    <IonTabButton tab="tab1" href="/tab1">
-                        <IonIcon icon={triangle} />
-                        <IonLabel>Tab 1</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab="tab2" href="/tab2">
-                        <IonIcon icon={ellipse} />
-                        <IonLabel>Tab 2</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab="tab3" href="/tab3">
-                        <IonIcon icon={square} />
-                        <IonLabel>Tab 3</IonLabel>
-                    </IonTabButton>
-                </IonTabBar>
-            </IonTabs>
-        </IonReactRouter>
-    </IonApp>
+  <IonApp>
+    <IonReactRouter>
+      <IonTabs>
+        <IonRouterOutlet>
+          <Route path="/home" component={Home} exact={true} />
+          <Route path="/categories" component={Categories} exact={true} />
+          <Route path="/chats" component={Chats} />
+          <Route path="/myaccount" component={MyAccount} />
+          <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
+        </IonRouterOutlet>
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="home" href="/home">
+          <IonIcon size="small" icon={home}/>
+            <IonLabel>Home</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="categories" href="/categories">
+            <IonIcon size="small" icon={gridOutline} />
+            <IonLabel>Categories</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="chats" href="/chats">
+            <IonIcon size="small" icon={chatboxOutline} />
+            <IonLabel>Chats</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="myaccount" href="/myaccount">
+            <IonIcon size="small" icon={personOutline} />
+            <IonLabel>My Account</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
+    </IonReactRouter>
+  </IonApp>
 );
 
 export default App;
