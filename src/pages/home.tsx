@@ -3,6 +3,7 @@ import { IonContent,IonLabel,IonSearchbar, IonHeader, IonPage, IonFab,IonFabButt
 import { add, createOutline, laptopOutline, phonePortraitOutline, bicycleOutline, libraryOutline, tabletLandscapeOutline, appsOutline } from 'ionicons/icons';
 import './home.css';
 import SearchBar from '../components/SearchBar'
+import HeaderCard from '../components/HeaderCard'
 import ItemCard from '../components/ItemCard'
 import CategoryCard from '../components/CategoryCard'
 
@@ -15,6 +16,9 @@ const home: React.FC = () => {
       </IonHeader>
 
       <IonContent>
+      <HeaderCard />
+
+      <CategoryCard />
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton>
             <IonIcon icon={add} />
@@ -25,29 +29,9 @@ const home: React.FC = () => {
           </IonFabList>
         </IonFab>
         
-        <IonGrid>
-            <IonRow>
-              <CategoryCard />
-              <CategoryCard />
-              <CategoryCard />
-            </IonRow>
-            <IonRow>
-              <CategoryCard />
-              <CategoryCard />
-              <CategoryCard />
-            </IonRow>
-          </IonGrid>
-        <IonToolbar>
-          <h4 className="sub-heading">Latest Deals</h4>
-        </IonToolbar>
-        <div className="items">
-          <ItemCard />
-          <ItemCard />
-          <ItemCard />
-          <ItemCard />
-          <ItemCard />
-          <ItemCard />
-        </div>
+          
+        
+        
         
         
         </IonContent>

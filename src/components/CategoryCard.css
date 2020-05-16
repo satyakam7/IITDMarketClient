@@ -1,0 +1,11 @@
+.col{
+    font-size:12px;
+    text-align: center;
+    border-radius:15px;
+    padding:4px;
+    padding-top:20px;
+    padding-bottom: 20px;
+    margin:12px;
+    border:solid 1px lightgrey;
+}
+
