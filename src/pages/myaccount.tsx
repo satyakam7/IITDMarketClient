@@ -28,7 +28,7 @@ const myaccount: React.FC = () => {
       <IonContent>
         <div className='buttons'>
           <IonButton > Click here to Register ! </IonButton><br/>
-          <IonButton   fill="outline">Already have an account ? Login</IonButton>
+          <IonButton size="small" fill="outline">Already have an account ? Login</IonButton>
         </div>
       </IonContent>
     </IonPage>

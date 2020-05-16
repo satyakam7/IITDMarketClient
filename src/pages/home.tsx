@@ -2,21 +2,17 @@ import React from 'react';
 import { IonContent,IonLabel,IonSearchbar, IonHeader, IonPage, IonFab,IonFabButton,IonIcon, IonToolbar, IonFabList, IonGrid, IonRow, IonFooter } from '@ionic/react';
 import { add, createOutline, laptopOutline, phonePortraitOutline, bicycleOutline, libraryOutline, tabletLandscapeOutline, appsOutline } from 'ionicons/icons';
 import './home.css';
+import SearchBar from '../components/SearchBar'
 import ItemCard from '../components/ItemCard'
 import CategoryCard from '../components/CategoryCard'
 
 const home: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader >
-        
-        <IonToolbar>
-          <br/>
-          <IonSearchbar></IonSearchbar>
-         
-        </IonToolbar>
-        
-        </IonHeader>
+      <IonHeader translucent className="ion-no-border">
+        <SearchBar />
+
+      </IonHeader>
 
       <IonContent>
         <IonFab vertical="bottom" horizontal="end" slot="fixed">

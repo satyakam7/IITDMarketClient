@@ -10,7 +10,7 @@ import {
   IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { chatboxOutline, gridOutline,home,personOutline, } from 'ionicons/icons';
+import { chatboxOutline, gridOutline,homeOutline,personOutline, } from 'ionicons/icons';
 import Home from './pages/home';
 import Categories from './pages/categories';
 import Chats from './pages/chats';
@@ -48,7 +48,7 @@ const App: React.FC = () => (
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">
-          <IonIcon size="small" icon={home}/>
+          <IonIcon size="small" icon={homeOutline}/>
             <IonLabel>Home</IonLabel>
           </IonTabButton>
           <IonTabButton tab="categories" href="/categories">
