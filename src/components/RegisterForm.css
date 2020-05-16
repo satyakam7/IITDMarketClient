@@ -3,5 +3,10 @@ ion-item{
 }
 
 .btn{
-    padding-top:2em;
+   margin:25px;
 }
+
+.form{
+    padding-left:7px;
+    padding-right: 21px;
+ }

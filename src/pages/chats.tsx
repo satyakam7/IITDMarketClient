@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import RegisterForm from '../components/RegisterForm'
+import HeaderCard from '../components/HeaderCard'
 
 
 const chats: React.FC = () => {
@@ -8,7 +8,7 @@ const chats: React.FC = () => {
     <IonPage>
       
       <IonContent>
-        <RegisterForm />
+        <HeaderCard />
       </IonContent>
     </IonPage>
   );

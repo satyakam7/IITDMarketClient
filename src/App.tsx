@@ -34,6 +34,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import RegisterForm from './components/RegisterForm';
 
 const App: React.FC = () => (
   <IonApp>
@@ -44,6 +45,7 @@ const App: React.FC = () => (
           <Route path="/categories" component={Categories} exact={true} />
           <Route path="/chats" component={Chats} />
           <Route path="/myaccount" component={MyAccount} />
+          <Route path="/register" component={RegisterForm} exact />
           <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">

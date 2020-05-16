@@ -13,7 +13,8 @@ const HeaderCard: React.FC = () => {
             Wanna buy, sell, rent items among IIT Delhi peeps? Dont worry, we got you covered !
             </IonCardContent>
             <IonCardContent>
-            <IonButton color="primary">Login to start</IonButton>
+            <IonButton href="/register" shape="round" expand="full" color="primary">Sign in to start</IonButton>
+            
           </IonCardContent>
           
         </IonCard>

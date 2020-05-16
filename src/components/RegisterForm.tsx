@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  IonHeader, IonTitle, IonToolbar, IonInput, IonItem, IonLabel, IonList, IonButton } from '@ionic/react';
+import {  IonHeader, IonTitle, IonToolbar,IonSelect,IonSelectOption, IonInput, IonItem, IonLabel, IonList, IonButton, IonBackButton } from '@ionic/react';
 import './RegisterForm.css'
 
 const RegisterForm: React.FC = () => {
@@ -11,41 +11,38 @@ const RegisterForm: React.FC = () => {
 
   return (
         <div >
-            <IonHeader>
             <IonToolbar>
-                <IonTitle>Create an account</IonTitle>
+                <IonTitle color="primary">Join us today !</IonTitle>
             </IonToolbar>
-
-            </IonHeader>
-            
-            <div style={{padding:'2em'}}>
-            <IonList>
-                <IonItem>
-                    <IonLabel position="floating">Username</IonLabel>
+            <div className="form">
+            <IonList >
+                <IonItem >
+                    <IonLabel color="medium"  position="floating">Username</IonLabel>
                     <IonInput value={uname} onIonChange={e => setUname(e.detail.value!)} required></IonInput>
                 </IonItem>
                 <IonItem>
-                    <IonLabel position="floating">Password</IonLabel>
+                    <IonLabel color="medium"  position="floating">Password</IonLabel>
                     <IonInput type="password" value={pass} onIonChange={e => setPass(e.detail.value!)} required></IonInput>
                 </IonItem>
                 <IonItem>
-                    <IonLabel position="floating">Entry Number</IonLabel>
+                    <IonLabel color="medium"  position="floating">Entry Number</IonLabel>
                     <IonInput value={entryno} onIonChange={e => setEntryno(e.detail.value!)} required></IonInput>
                 </IonItem>
                 <IonItem>
-                    <IonLabel position="floating">Hostel</IonLabel>
-                    <IonInput value={hostel} onIonChange={e => setHostel(e.detail.value!)} required></IonInput>
+                    <IonLabel color="medium"  position="floating">Hostel</IonLabel>
+                    <IonSelect value={hostel} okText="Okay" cancelText="Dismiss" onIonChange={e => setHostel(e.detail.value)}>
+                    <IonSelectOption>Aravalli</IonSelectOption>
+                    <IonSelectOption>Girnar</IonSelectOption>
+                    <IonSelectOption>Jwalamukhi</IonSelectOption>
+                    <IonSelectOption>Himadri</IonSelectOption>
+                    <IonSelectOption>Zanskar</IonSelectOption>
+                    </IonSelect>
                 </IonItem>
             </IonList>
+            </div>
             <div className="btn">
-            <IonButton color="dark">Register</IonButton>
+            <IonButton shape="round" expand="full" color="primary">Register</IonButton>
             </div>
-            
-
-
-            </div>
-            
-        
         </div>
         );
 };
