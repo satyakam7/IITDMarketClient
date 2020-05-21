@@ -35,6 +35,8 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import RegisterForm from './components/RegisterForm';
+import PostAd from './components/PostAd';
+
 
 const App: React.FC = () => (
   <IonApp>
@@ -46,7 +48,8 @@ const App: React.FC = () => (
           <Route path="/chats" component={Chats} />
           <Route path="/myaccount" component={MyAccount} />
           <Route path="/register" component={RegisterForm} exact />
-          <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
+          <Route path="/postad" component={PostAd} exact />
+          <Route path="/" render={() => <Redirect to="/postad" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">
