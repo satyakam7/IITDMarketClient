@@ -16,11 +16,15 @@ import {
     homeOutline,
     personOutline,
 } from 'ionicons/icons';
-import Home from './pages/home';
-import Categories from './pages/categories';
-import Chats from './pages/chats';
-import MyAccount from './pages/myaccount';
+import Home from './pages/home/home';
+import Categories from './pages/categories/categories';
+import Chats from './pages/chats/chats';
+import MyAccount from './pages/myaccount/myaccount';
+/* new imports */
+import RegisterForm from './components/RegisterForm/RegisterForm';
+import Health from './pages/Health/Health';
 
+import PostAd from './components/PostAd/PostAd';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -39,8 +43,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import RegisterForm from './components/RegisterForm';
-import Health from './pages/Health';
+
 
 const App: React.FC = () => (
     <IonApp>
@@ -53,6 +56,7 @@ const App: React.FC = () => (
                     <Route path="/chats" component={Chats} />
                     <Route path="/myaccount" component={MyAccount} />
                     <Route path="/register" component={RegisterForm} exact />
+                    <Route path="/postad" component={PostAd} exact />
                     <Route
                         path="/"
                         render={() => <Redirect to="/home" />}

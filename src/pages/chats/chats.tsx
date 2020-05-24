@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-} from '@ionic/react';
-import HeaderCard from '../components/HeaderCard';
+import { IonContent, IonPage } from '@ionic/react';
+import HeaderCard from '../../components/HeaderCard/HeaderCard';
 
 const chats: React.FC = () => {
     return (

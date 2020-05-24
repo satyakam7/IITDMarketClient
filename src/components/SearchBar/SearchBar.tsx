@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonHeader, IonToolbar, IonSearchbar } from '@ionic/react';
+import { IonToolbar, IonSearchbar } from '@ionic/react';
 import './SearchBar.css';
 
 const SearchBar: React.FC = () => {
@@ -7,6 +7,7 @@ const SearchBar: React.FC = () => {
     return (
         <IonToolbar>
             <IonSearchbar
+                class="search"
                 value={searchText}
                 onIonChange={(e) => setSearchText(e.detail.value!)}
                 placeholder="Search for laptops, cycles..."

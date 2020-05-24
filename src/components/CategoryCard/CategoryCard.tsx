@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonIcon,
-    IonContent,
-    IonLabel,
-} from '@ionic/react';
+import { IonGrid, IonRow, IonCol, IonIcon, IonLabel } from '@ionic/react';
 import {
     laptopOutline,
     bicycleOutline,

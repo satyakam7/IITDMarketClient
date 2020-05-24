@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-} from '@ionic/react';
-import CategoryCard from '../components/CategoryCard';
+import { IonContent, IonPage } from '@ionic/react';
+import CategoryCard from '../../components/CategoryCard/CategoryCard';
 
 const categories: React.FC = () => {
     return (

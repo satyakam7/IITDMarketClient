@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-    IonHeader,
     IonTitle,
     IonToolbar,
     IonSelect,
@@ -10,7 +9,6 @@ import {
     IonLabel,
     IonList,
     IonButton,
-    IonBackButton,
 } from '@ionic/react';
 import './RegisterForm.css';
 
