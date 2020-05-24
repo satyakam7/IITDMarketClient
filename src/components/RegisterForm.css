@@ -2,9 +2,8 @@ ion-item{
     padding-top:1em;
 }
 
-.regbuttons {
-    align-content: center;
-    width:20%;
+.btn{
+   margin:25px;
 }
 
 .form{

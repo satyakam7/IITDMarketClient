@@ -20,11 +20,11 @@ const home: React.FC = () => {
 
       <CategoryCard />
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
-          <IonFabButton href="/postad">
+          <IonFabButton>
             <IonIcon icon={add} />
           </IonFabButton>
           <IonFabList side="start">
-              <IonIcon  class="ad" size="large" icon={createOutline}/>
+              <IonIcon class="ad" size="large" icon={createOutline}/>
               <IonLabel>Post an Ad</IonLabel>
           </IonFabList>
         </IonFab>
