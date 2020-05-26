@@ -17,7 +17,9 @@ import HeaderCard from '../../components/HeaderCard/HeaderCard';
 import ItemList from '../../components/ItemList/ItemList';
 // import CategoryCard from '../../components/CategoryCard/CategoryCard';
 
-class Home extends React.Component {
+import { connect } from 'react-redux'
+
+class Home extends React.Component<any,any> {
     // eslint-disable-next-line react/destructuring-assignment
     // eslint-disable-next-line react/state-in-constructor
     state = {
@@ -55,7 +57,7 @@ class Home extends React.Component {
                             </IonSegmentButton>
                         </IonSegment>
                     </IonToolbar>
-                    <ItemList category={this.state.category} />
+                    <ItemList items={this.props.items} category={this.state.category} />
                     <IonFab vertical="bottom" horizontal="end" slot="fixed">
                         <IonFabButton href="/postad">
                             <IonIcon icon={add} />
@@ -75,4 +77,10 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+const mapStatetoProps = (state: { item: { items: any; }; }) => {
+    return {
+        items : state.item.items
+    }
+}
+
+export default connect(mapStatetoProps)(Home);

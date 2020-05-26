@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonCard, IonCardHeader, IonCardSubtitle } from '@ionic/react';
 
-class ItemCard extends React.Component<any, any> {
+class ItemCard extends React.Component<any,any> {
     render() {
         const { item } = this.props;
         return (

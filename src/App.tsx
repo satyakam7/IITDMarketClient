@@ -23,6 +23,7 @@ import MyAccount from './pages/myaccount/myaccount';
 /* new imports */
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import Health from './pages/Health/Health';
+import ItemDetail from './components/ItemDetail/ItemDetail'
 
 import PostAd from './components/PostAd/PostAd';
 /* Core CSS required for Ionic components to work properly */
@@ -57,6 +58,7 @@ const App: React.FC = () => (
                     <Route path="/myaccount" component={MyAccount} />
                     <Route path="/register" component={RegisterForm} exact />
                     <Route path="/postad" component={PostAd} exact />
+                    <Route path="/itemdetail" component={ItemDetail} exact />
                     <Route
                         path="/"
                         render={() => <Redirect to="/home" />}
