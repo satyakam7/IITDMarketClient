@@ -10,8 +10,9 @@ import {
 } from '@ionic/react';
 import './myaccount.css';
 import HeaderCard from '../../components/HeaderCard/HeaderCard';
+import { RouteComponentProps } from 'react-router';
 
-const myaccount: React.FC = () => {
+const myaccount: React.FC<RouteComponentProps> = (props) => {
     return (
         <IonPage>
             <IonHeader>
@@ -33,7 +34,7 @@ const myaccount: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <HeaderCard />
+                <HeaderCard {...props} />
             </IonContent>
         </IonPage>
     );

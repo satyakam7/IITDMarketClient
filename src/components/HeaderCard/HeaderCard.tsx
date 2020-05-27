@@ -8,8 +8,12 @@ import {
 } from '@ionic/react';
 import './HeaderCard.css';
 import SearchBar from '../SearchBar/SearchBar';
+import { RouteComponentProps } from 'react-router-dom'
 
-const HeaderCard: React.FC = () => {
+const HeaderCard: React.FC<RouteComponentProps> = (props) => {
+    const clicked = (route: string) => {
+        props.history.push(route);
+    }
     return (
         <IonCard color="light">
             <IonCardHeader>
@@ -18,18 +22,16 @@ const HeaderCard: React.FC = () => {
                     IITD Marketplace
                 </IonCardTitle>
             </IonCardHeader>
-
             <IonCardContent class="sub-title">
                 Wanna buy, sell, rent items among IIT Delhi peeps? Dont worry,
                 we got you covered !
             </IonCardContent>
             <SearchBar />
             <IonCardContent>
-                <IonButton class="reg-btn" href="/register">
+                <IonButton className="reg-btn" onClick={() => clicked("/register")}>
                     Sign in to start
                 </IonButton>
-
-                <IonButton class="reg-btn" href="/login">
+                <IonButton className="reg-btn" onClick={() => clicked('/login')}>
                     Login
                 </IonButton>
             </IonCardContent>

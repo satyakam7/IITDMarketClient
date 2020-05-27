@@ -6,8 +6,8 @@ class ItemCard extends React.Component<any,any> {
         const { item } = this.props;
         return (
             <div>
-                <IonCard style={{ margin: '0' }} href="/itemdetail">
-                    <img src={item.image} />
+                <IonCard style={{ margin: '0' }} routerLink="/itemdetail">
+                    <img src={item.image} alt="cardImg" />
                     <IonCardHeader>
                         <IonCardSubtitle>{item.name}</IonCardSubtitle> Rs.{' '}
                         {item.price}

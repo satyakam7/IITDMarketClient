@@ -21,7 +21,6 @@ const ItemDetail: React.FC = () => {
     return (
         <IonPage>
             <IonHeader className="ion-no-border" />
-
             <IonContent>
                 <IonCard mode="ios">
                     <IonCardHeader>
@@ -36,7 +35,6 @@ const ItemDetail: React.FC = () => {
                             <img src="/images/laptop.jfif" alt="" />
                         </IonToolbar>
                     </IonCardHeader>
-
                     <IonCardContent>
                         <IonChip outline color="primary">
                             <IonLabel>Electronics</IonLabel>
@@ -46,7 +44,6 @@ const ItemDetail: React.FC = () => {
                         </IonChip>
                     </IonCardContent>
                 </IonCard>
-
                 <IonCard mode="ios">
                     <IonCardHeader>
                         <IonCardSubtitle>Seller Details</IonCardSubtitle>
@@ -68,7 +65,6 @@ const ItemDetail: React.FC = () => {
                         </IonButton>
                     </IonCardContent>
                 </IonCard>
-
                 <IonCard mode="ios">
                     <IonCardHeader>
                         <IonCardSubtitle>Product Details</IonCardSubtitle>
@@ -83,7 +79,6 @@ const ItemDetail: React.FC = () => {
                         </ul>
                     </IonText>
                 </IonCard>
-
                 <IonCard mode="ios">
                     <IonCardHeader>
                         <IonCardSubtitle>Reviews</IonCardSubtitle>

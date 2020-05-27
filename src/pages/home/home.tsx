@@ -17,21 +17,20 @@ import HeaderCard from '../../components/HeaderCard/HeaderCard';
 import ItemList from '../../components/ItemList/ItemList';
 // import CategoryCard from '../../components/CategoryCard/CategoryCard';
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 
-class Home extends React.Component<any,any> {
+class Home extends React.Component<RouteComponentProps & { items: any }, any> {
     // eslint-disable-next-line react/destructuring-assignment
     // eslint-disable-next-line react/state-in-constructor
     state = {
         category: 'all',
     };
-
     render() {
         return (
             <IonPage>
                 <IonContent>
-                    <HeaderCard />
-
+                    <HeaderCard {...this.props} />
                     <IonToolbar style={{ marginBottom: '1em' }}>
                         <IonSegment
                             scrollable
@@ -57,18 +56,23 @@ class Home extends React.Component<any,any> {
                             </IonSegmentButton>
                         </IonSegment>
                     </IonToolbar>
-                    <ItemList items={this.props.items} category={this.state.category} />
+                    <ItemList
+                        items={this.props.items}
+                        category={this.state.category}
+                    />
                     <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                        <IonFabButton href="/postad">
+                        <IonFabButton>
                             <IonIcon icon={add} />
                         </IonFabButton>
                         <IonFabList side="start">
-                            <IonIcon
-                                class="ad"
-                                size="large"
-                                icon={createOutline}
-                            />
-                            <IonLabel>Post an Ad</IonLabel>
+                            <IonFabButton color='light' onClick={() => this.props.history.push('/postad')}>
+                                <IonIcon
+                                    class="ad"
+                                    size="large"
+                                    icon={createOutline}
+                                />
+                                {/* <IonLabel>Post an Ad</IonLabel> */}
+                            </IonFabButton>
                         </IonFabList>
                     </IonFab>
                 </IonContent>
@@ -77,10 +81,10 @@ class Home extends React.Component<any,any> {
     }
 }
 
-const mapStatetoProps = (state: { item: { items: any; }; }) => {
+const mapStatetoProps = (state: any) => {
     return {
-        items : state.item.items
-    }
-}
+        items: state.item.items,
+    };
+};
 
 export default connect(mapStatetoProps)(Home);
