@@ -1,0 +1,25 @@
+.heading {
+    font-size: 8vw;
+    text-align:center;
+}
+
+.sub-heading {
+ 
+    
+    font-size: 8vw;
+    text-align:center;
+}
+.sub-title {
+    text-align: center;
+}
+
+.reg-btn {
+    
+    width: 200px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -16,11 +16,16 @@ import {
     homeOutline,
     personOutline,
 } from 'ionicons/icons';
-import Home from './pages/home';
-import Categories from './pages/categories';
-import Chats from './pages/chats';
-import MyAccount from './pages/myaccount';
+import Home from './pages/home/home';
+import Categories from './pages/categories/categories';
+import Chats from './pages/chats/chats';
+import MyAccount from './pages/myaccount/myaccount';
+/* new imports */
+import RegisterForm from './components/RegisterForm/RegisterForm';
+import Health from './pages/Health/Health';
+import ItemDetail from './components/ItemDetail/ItemDetail'
 
+import PostAd from './components/PostAd/PostAd';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -39,7 +44,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import RegisterForm from './components/RegisterForm';
+
 
 const App: React.FC = () => (
     <IonApp>
@@ -47,18 +52,15 @@ const App: React.FC = () => (
             <IonTabs>
                 <IonRouterOutlet>
                     <Switch>
-                        <Route path="/home" component={Home} />
-                        <Route
-                            path="/categories"
-                            component={Categories}
-                        />
-                        <Route path="/chats" component={Chats} />
-                        <Route path="/myaccount" component={MyAccount} />
-                        <Route
-                            path="/register"
-                            component={RegisterForm}
-                        />
-                        <Redirect to="/home" />
+                    <Route exact path="/healthz" component={Health} />
+                    <Route path="/home" component={Home} exact />
+                    <Route path="/categories" component={Categories} exact />
+                    <Route path="/chats" component={Chats} />
+                    <Route path="/myaccount" component={MyAccount} />
+                    <Route path="/register" component={RegisterForm} exact />
+                    <Route path="/postad" component={PostAd} exact />
+                    <Route path="/itemdetail" component={ItemDetail} exact />
+                    <Redirect to="/" />
                     </Switch>
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">
