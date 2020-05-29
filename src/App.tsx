@@ -1,5 +1,7 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
+import axios from 'axios';
+import qs from 'querystring'
 import {
     IonApp,
     IonIcon,
@@ -46,6 +48,18 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 class App extends React.Component {
+    componentDidMount() {
+        const eventUser = new EventSource('http://localhost:5000/streamUser');
+        eventUser.onmessage = e => e.data
+        const data = {
+            username: 'ssh',
+            password: '12345'
+        }
+        axios
+            .post('http://localhost:5000/login', qs.stringify(data))
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err.response));
+    }
     render() {
         return (
             <IonApp>
