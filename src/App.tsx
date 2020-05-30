@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import axios from 'axios';
 import qs from 'querystring'
+import {connect} from 'react-redux'
 import {
     IonApp,
     IonIcon,
@@ -46,11 +47,12 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import {authSuccess} from './store/actions/index'
 
-class App extends React.Component {
+class App extends React.Component<any, any> {
     componentDidMount() {
         const eventUser = new EventSource('http://localhost:5000/streamUser');
-        eventUser.onmessage = e => e.data
+        eventUser.onmessage = e => this.props.changeUser(e.data)
         const data = {
             username: 'ssh',
             password: '12345'
@@ -101,4 +103,8 @@ class App extends React.Component {
     }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+    changeUser : (data) => dispatch(authSuccess(data))
+})
+
+export default connect(null, mapDispatchToProps)(App);
