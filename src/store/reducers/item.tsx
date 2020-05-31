@@ -71,10 +71,10 @@ const initState = {
             image: '/images/book.jfif',
         },
     ],
-}
+};
 
-const itemReducer = (state = initState,action) => {
-    return state
-}
+const itemReducer = (state = initState, action) => {
+    return state;
+};
 
-export default itemReducer
+export default itemReducer;

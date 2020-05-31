@@ -14,6 +14,9 @@ import {
     IonButton,
     IonPage,
     IonContent,
+    IonHeader,
+    IonButtons,
+    IonBackButton,
 } from '@ionic/react';
 
 const PostAd: React.FC<RouteComponentProps> = () => {
@@ -28,7 +31,14 @@ const PostAd: React.FC<RouteComponentProps> = () => {
         <IonPage>
             <IonContent>
                 <IonToolbar>
-                    <IonTitle color="primary">Post Your Ad </IonTitle>
+                    <IonHeader style={{ padding: 0 }}>
+                        <IonToolbar>
+                            <IonButtons slot="start">
+                                <IonBackButton defaultHref="/" />
+                            </IonButtons>
+                            <IonTitle>Post Your Ad</IonTitle>
+                        </IonToolbar>
+                    </IonHeader>
                 </IonToolbar>
                 <div className="form">
                     <IonList>
