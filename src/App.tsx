@@ -1,8 +1,8 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import axios from 'axios';
-import qs from 'querystring'
-import {connect} from 'react-redux'
+import qs from 'querystring';
+import { connect } from 'react-redux';
 import {
     IonApp,
     IonIcon,
@@ -22,7 +22,7 @@ import {
 import Home from './pages/home/home';
 import Categories from './pages/categories/categories';
 import Chats from './pages/chats/chats';
-import MyAccount from './pages/myaccount/myaccount';
+import MyAccount from './pages/Myaccount/Myaccount';
 /* new imports */
 import Register from './pages/register/register';
 import Health from './pages/Health/Health';
@@ -47,16 +47,16 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import {authSuccess} from './store/actions/index'
+import { authSuccess } from './store/actions/index';
 
 class App extends React.Component<any, any> {
     componentDidMount() {
         const eventUser = new EventSource('http://localhost:5000/streamUser');
-        eventUser.onmessage = e => this.props.changeUser(e.data)
+        eventUser.onmessage = (e) => this.props.changeUser(e.data);
         const data = {
             username: 'ssh',
-            password: '12345'
-        }
+            password: '12345',
+        };
         axios
             .post('http://localhost:5000/login', qs.stringify(data))
             .then((res) => console.log(res))
@@ -103,8 +103,8 @@ class App extends React.Component<any, any> {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    changeUser : (data) => dispatch(authSuccess(data))
-})
+const mapDispatchToProps = (dispatch) => ({
+    changeUser: (data) => dispatch(authSuccess(data)),
+});
 
 export default connect(null, mapDispatchToProps)(App);
