@@ -1,80 +1,71 @@
 import React from 'react';
-import { IonGrid, IonRow, IonCol, IonIcon, IonLabel } from '@ionic/react';
-import {
-    laptopOutline,
-    bicycleOutline,
-    phonePortraitOutline,
-    tabletLandscapeOutline,
-    libraryOutline,
-    constructOutline,
-} from 'ionicons/icons';
+import { IonGrid, IonRow, IonCol, IonIcon, IonLabel, IonText,IonChip } from '@ionic/react';
+import { bicycle, laptopOutline, phonePortraitOutline, tabletLandscapeOutline, bookOutline, constructOutline} from 'ionicons/icons';
 import './CategoryCard.css';
+
 
 const CategoryCard: React.FC = () => (
     <IonGrid>
+    
         <IonRow>
-            <IonCol className="col" size="3">
-                <IonIcon
-                    id="1"
-                    color="primary"
-                    size="large"
-                    icon={laptopOutline}
-                />
-                <br />
-                <IonLabel>Laptops</IonLabel>
+            
+            <IonCol className="chip-col" size="6">
+            <IonChip outline color="dark">
+                <IonIcon icon={laptopOutline} size="large" color="secondary"  />
+                <IonText color="dark"><h6>Laptops</h6></IonText>
+            </IonChip>
             </IonCol>
-            <IonCol className="col" size="3">
-                <IonIcon
-                    id="1"
-                    color="danger"
-                    size="large"
-                    icon={bicycleOutline}
-                />
-                <br />
-                <IonLabel>Bicycles</IonLabel>
+
+            <IonCol className="chip-col" size="6">
+            <IonChip outline color="dark">
+                <IonIcon icon={bicycle} size="large" color="warning"  />
+                <IonText color="dark"><h6>Bicycles</h6></IonText>
+            </IonChip>
             </IonCol>
-            <IonCol className="col" size="3">
-                <IonIcon
-                    id="1"
-                    color="warning"
-                    size="large"
-                    icon={phonePortraitOutline}
-                />
-                <br />
-                <IonLabel>Mobiles</IonLabel>
-            </IonCol>
-            <IonCol className="col" size="3">
-                <IonIcon
-                    id="1"
-                    color="success"
-                    size="large"
-                    icon={tabletLandscapeOutline}
-                />
-                <br />
-                <IonLabel>Mattresses</IonLabel>
-            </IonCol>
-            <IonCol className="col" size="3">
-                <IonIcon
-                    id="1"
-                    color="secondary"
-                    size="large"
-                    icon={libraryOutline}
-                />
-                <br />
-                <IonLabel>Books</IonLabel>
-            </IonCol>
-            <IonCol className="col" size="3">
-                <IonIcon
-                    id="1"
-                    color="dark"
-                    size="large"
-                    icon={constructOutline}
-                />
-                <br />
-                <IonLabel>Miscellaneous</IonLabel>
-            </IonCol>
+
         </IonRow>
+
+        <IonRow>
+            
+            <IonCol className="chip-col" size="6">
+            <IonChip outline color="dark">
+                <IonIcon icon={phonePortraitOutline} size="large" color="danger"  />
+                <IonText color="dark"><h6>Phones</h6></IonText>
+            </IonChip>
+            </IonCol>
+
+            <IonCol className="chip-col" size="6">
+            <IonChip outline color="dark">
+                <IonIcon icon={tabletLandscapeOutline} size="large" color="dark"  />
+                <IonText color="dark"><h6>Matteresses</h6></IonText>
+            </IonChip>
+            </IonCol>
+
+        </IonRow>
+
+        <IonRow>
+            
+            <IonCol className="chip-col" size="6">
+            <IonChip outline color="dark">
+                <IonIcon icon={bookOutline} size="large" color="success"  />
+                <IonText color="dark"><h6>Books</h6></IonText>
+            </IonChip>
+            </IonCol>
+
+            <IonCol className="chip-col" size="6">
+            <IonChip outline color="dark">
+                <IonIcon icon={constructOutline} size="large" color="primary"  />
+                <IonText color="dark"><h6>Misc.</h6></IonText>
+            </IonChip>
+            </IonCol>
+
+            
+
+        </IonRow>
+
     </IonGrid>
+        
+
 );
 
 export default CategoryCard;

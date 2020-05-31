@@ -6,11 +6,11 @@ const SearchBar: React.FC = () => {
     const [searchText, setSearchText] = useState('');
     return (
         <IonToolbar>
-            <IonSearchbar
-                class="search"
+            <IonSearchbar mode="ios" 
+                className="searchbar"
                 value={searchText}
                 onIonChange={(e) => setSearchText(e.detail.value!)}
-                placeholder="Search for laptops, cycles..."
+                placeholder="Search"
             />
         </IonToolbar>
     );
