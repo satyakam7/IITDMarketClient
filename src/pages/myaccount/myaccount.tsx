@@ -7,7 +7,7 @@ import {
     IonLabel,
     IonToolbar,
 } from '@ionic/react';
-import './Myaccount.css';
+import './myaccount.css';
 import { RouteComponentProps } from 'react-router';
 import {
     IonButtons,
