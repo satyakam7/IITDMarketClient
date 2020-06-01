@@ -30,6 +30,12 @@ import {
     ribbonOutline,
 } from 'ionicons/icons';
 import './home2.css';
+<<<<<<< HEAD
+=======
+import HeaderCard from '../../components/HeaderCard/HeaderCard';
+import ItemList from '../../components/ItemList/ItemList';
+
+>>>>>>> a450edb73287d0882143cea1f855fb4413e2bc4e
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import HeaderCard from '../../components/HeaderCard/HeaderCard';

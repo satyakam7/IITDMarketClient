@@ -19,6 +19,7 @@
     "ionicons": "^5.0.0",
     "querystring": "^0.2.0",
     "react": "^16.13.0",
+    "react-axios": "^2.0.3",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "react-router": "^5.1.2",

@@ -10,6 +10,8 @@ import {
     IonIcon,
     IonToolbar,
     IonFabList,
+    IonButtons,
+    IonBackButton,
 } from '@ionic/react';
 import { add, createOutline } from 'ionicons/icons';
 import './home.css';
@@ -18,6 +20,10 @@ import { RouteComponentProps } from 'react-router';
 import HeaderCard from '../../components/HeaderCard/HeaderCard';
 import ItemList from '../../components/ItemList/ItemList';
 // import CategoryCard from '../../components/CategoryCard/CategoryCard';
+
+import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 class Home extends React.Component<RouteComponentProps & { items: any }, any> {
     // eslint-disable-next-line react/destructuring-assignment
@@ -30,6 +36,13 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
         return (
             <IonPage>
                 <IonContent>
+                    <IonToolbar>
+                        <IonButtons slot="start">
+                            <IonBackButton defaultHref="/" />
+                        </IonButtons>
+                        <SearchBar />
+                    </IonToolbar>
+
                     <HeaderCard {...this.props} />
                     <IonToolbar style={{ marginBottom: '1em' }}>
                         <IonSegment
