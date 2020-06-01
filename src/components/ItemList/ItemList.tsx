@@ -3,11 +3,8 @@ import { IonCol, IonRow } from '@ionic/react';
 import ItemCard from '../ItemCard/ItemCard';
 // import categories from '../../pages/categories/categories';
 
-
-
-class ItemList extends React.Component<any,any>{
+class ItemList extends React.Component<any, any> {
     render() {
-        
         const itemList = this.props.items.map((item) => {
             if (this.props.category === 'all') {
                 return (
@@ -22,9 +19,8 @@ class ItemList extends React.Component<any,any>{
                         <ItemCard item={item} />
                     </IonCol>
                 );
-            } else {
-                return null;
             }
+            return null;
         });
 
         return <IonRow>{itemList}</IonRow>;

@@ -7,13 +7,13 @@ import {
     IonButton,
 } from '@ionic/react';
 import './HeaderCard.css';
+import { RouteComponentProps } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
-import { RouteComponentProps } from 'react-router-dom'
 
 const HeaderCard: React.FC<RouteComponentProps> = (props) => {
     const clicked = (route: string) => {
         props.history.push(route);
-    }
+    };
     return (
         <IonCard color="light">
             <IonCardHeader>
@@ -28,10 +28,16 @@ const HeaderCard: React.FC<RouteComponentProps> = (props) => {
             </IonCardContent>
             <SearchBar />
             <IonCardContent>
-                <IonButton className="reg-btn" onClick={() => clicked("/register")}>
+                <IonButton
+                    className="reg-btn"
+                    onClick={() => clicked('/register')}
+                >
                     Sign in to start
                 </IonButton>
-                <IonButton className="reg-btn" onClick={() => clicked('/login')}>
+                <IonButton
+                    className="reg-btn"
+                    onClick={() => clicked('/login')}
+                >
                     Login
                 </IonButton>
             </IonCardContent>

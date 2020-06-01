@@ -13,12 +13,11 @@ import {
 } from '@ionic/react';
 import { add, createOutline } from 'ionicons/icons';
 import './home.css';
+import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import HeaderCard from '../../components/HeaderCard/HeaderCard';
 import ItemList from '../../components/ItemList/ItemList';
 // import CategoryCard from '../../components/CategoryCard/CategoryCard';
-
-import { connect } from 'react-redux';
-import { RouteComponentProps } from 'react-router';
 
 class Home extends React.Component<RouteComponentProps & { items: any }, any> {
     // eslint-disable-next-line react/destructuring-assignment
@@ -26,6 +25,7 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
     state = {
         category: 'all',
     };
+
     render() {
         return (
             <IonPage>
@@ -65,7 +65,12 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
                             <IonIcon icon={add} />
                         </IonFabButton>
                         <IonFabList side="start">
-                            <IonFabButton color='light' onClick={() => this.props.history.push('/postad')}>
+                            <IonFabButton
+                                color="light"
+                                onClick={() =>
+                                    this.props.history.push('/postad')
+                                }
+                            >
                                 <IonIcon
                                     class="ad"
                                     size="large"

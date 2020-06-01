@@ -9,8 +9,8 @@ import {
     IonToolbar,
 } from '@ionic/react';
 import './myaccount.css';
-import HeaderCard from '../../components/HeaderCard/HeaderCard';
 import { RouteComponentProps } from 'react-router';
+import HeaderCard from '../../components/HeaderCard/HeaderCard';
 
 const myaccount: React.FC<RouteComponentProps> = (props) => {
     return (

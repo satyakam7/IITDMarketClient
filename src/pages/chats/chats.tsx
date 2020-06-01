@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonContent, IonPage } from '@ionic/react';
-import HeaderCard from '../../components/HeaderCard/HeaderCard';
 import { RouteComponentProps } from 'react-router';
+import HeaderCard from '../../components/HeaderCard/HeaderCard';
 
 const chats: React.FC<RouteComponentProps> = (props) => {
     return (
