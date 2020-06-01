@@ -8,14 +8,14 @@ class ItemList extends React.Component<any, any> {
         const itemList = this.props.items.map((item) => {
             if (this.props.category === 'all') {
                 return (
-                    <IonCol size="6" key={item.id}>
+                    <IonCol size="7" key={item.id}>
                         <ItemCard item={item} />
                     </IonCol>
                 );
             }
             if (this.props.category === item.category) {
                 return (
-                    <IonCol size="6" key={item.id}>
+                    <IonCol size="7" key={item.id}>
                         <ItemCard item={item} />
                     </IonCol>
                 );
@@ -23,7 +23,7 @@ class ItemList extends React.Component<any, any> {
             return null;
         });
 
-        return <IonRow>{itemList}</IonRow>;
+        return <IonRow className="horizontal-scrolling">{itemList}</IonRow>;
     }
 }
 export default ItemList;

@@ -62,7 +62,7 @@
     "@types/react-redux": "^7.1.9",
     "@types/socket.io-client": "^1.4.33",
     "eslint-config-airbnb-typescript-prettier": "^2.1.1",
-    "prettier": "^2.0.5"
+    "prettier": "2.0.5"
   },
   "description": "An Ionic project"
 }

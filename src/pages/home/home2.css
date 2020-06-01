@@ -23,6 +23,23 @@
     padding-left:5px;
 }
 
+.horizontal-scrolling {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+} 
+
+.horizontal-scrolling {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+}
+
+.horizontal-scrolling .banner-card{
+    flex: 0 0 auto;
+}
+  
+
 ion-card { 
     margin-top:10px !important;
     margin-bottom:10px !important;

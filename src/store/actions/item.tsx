@@ -1,7 +1,6 @@
 import qs from 'querystring';
 import axios from '../../axios-ins';
 import * as actionTypes from './actionTypes';
-import qs from 'querystring';
 
 export const getItemStart = () => ({
     type: actionTypes.ITEM_START,
@@ -9,7 +8,7 @@ export const getItemStart = () => ({
 
 export const getItemSuccess = (data) => ({
     type: actionTypes.ITEM_SUCCESS,
-    data: data,
+    data,
 });
 
 export const postItemStart = () => ({
@@ -18,12 +17,12 @@ export const postItemStart = () => ({
 
 export const postItemSuccess = (data) => ({
     type: actionTypes.ITEM_POST_SUCCESS,
-    data: data,
+    data,
 });
 
 export const itemFail = (err) => ({
     type: actionTypes.ITEM_FAIL,
-    err: err,
+    err,
 });
 
 export const editItemStart = () => ({
@@ -32,7 +31,7 @@ export const editItemStart = () => ({
 
 export const editItemSuccess = (data) => ({
     type: actionTypes.ITEM_EDIT_SUCCESS,
-    data: data,
+    data,
 });
 
 export const delItemStart = () => ({
@@ -90,11 +89,7 @@ export const postItem = (data) => (dispatch) => {
 export const editItem = (data, id) => (dispatch) => {
     dispatch(editItemStart());
     axios
-<<<<<<< HEAD
         .put(`/item/${id}`, qs.stringify(data))
-=======
-        .put('/item/' + id, qs.stringify(data))
->>>>>>> a450edb73287d0882143cea1f855fb4413e2bc4e
         .then((res) => {
             dispatch(editItemSuccess(res.data));
         })
@@ -106,11 +101,7 @@ export const editItem = (data, id) => (dispatch) => {
 export const delItem = (id) => (dispatch) => {
     dispatch(delItemStart());
     axios
-<<<<<<< HEAD
         .delete(`/item/${id}`)
-=======
-        .delete('/item/' + id)
->>>>>>> a450edb73287d0882143cea1f855fb4413e2bc4e
         .then((res) => {
             dispatch(delItemSuccess());
         })
@@ -122,11 +113,7 @@ export const delItem = (id) => (dispatch) => {
 export const selliniItem = (id, data) => (dispatch) => {
     dispatch(sellIniItemStart());
     axios
-<<<<<<< HEAD
         .patch(`/item/${id}/sellIni`, qs.stringify(data))
-=======
-        .patch('/item/' + id + '/sellIni', qs.stringify(data))
->>>>>>> a450edb73287d0882143cea1f855fb4413e2bc4e
         .then((res) => {
             dispatch(sellIniItemSuccess());
         })
@@ -138,11 +125,7 @@ export const selliniItem = (id, data) => (dispatch) => {
 export const sellfniItem = (id, data) => (dispatch) => {
     dispatch(sellFinItemStart());
     axios
-<<<<<<< HEAD
         .patch(`/item/${id}/sellFin`, qs.stringify(data))
-=======
-        .patch('/item/' + id + '/sellFin', qs.stringify(data))
->>>>>>> a450edb73287d0882143cea1f855fb4413e2bc4e
         .then((res) => {
             dispatch(sellFinItemSuccess());
         })
@@ -153,11 +136,7 @@ export const sellfniItem = (id, data) => (dispatch) => {
 
 export const reportItem = (id) => (dispatch) => {
     axios
-<<<<<<< HEAD
         .patch(`/item/${id}/report`)
-=======
-        .patch('/item/' + id + '/report')
->>>>>>> a450edb73287d0882143cea1f855fb4413e2bc4e
         .then((res) => {
             dispatch(reportItemSuccess());
         })

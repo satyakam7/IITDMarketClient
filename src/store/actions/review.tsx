@@ -1,5 +1,5 @@
-import axios from '../../axios-ins';
 import qs from 'querystring';
+import axios from '../../axios-ins';
 import * as actionTypes from './actionTypes';
 
 export const getReviewStart = () => ({
@@ -8,7 +8,7 @@ export const getReviewStart = () => ({
 
 export const getReviewSuccess = (data) => ({
     type: actionTypes.REVIEW_SUCCESS,
-    data: data,
+    data,
 });
 
 export const postReviewStart = () => ({
@@ -17,12 +17,12 @@ export const postReviewStart = () => ({
 
 export const postReviewSuccess = (data) => ({
     type: actionTypes.REVIEW_POST_SUCCESS,
-    data: data,
+    data,
 });
 
 export const reviewFail = (err) => ({
     type: actionTypes.REVIEW_FAIL,
-    err: err,
+    err,
 });
 
 export const editReviewStart = () => ({
@@ -31,7 +31,7 @@ export const editReviewStart = () => ({
 
 export const editReviewSuccess = (data) => ({
     type: actionTypes.REVIEW_EDIT_SUCCESS,
-    data: data,
+    data,
 });
 
 export const delReviewStart = () => ({
@@ -61,7 +61,7 @@ export const resolveReviewSuccess = () => ({
 export const getReview = (id) => (dispatch) => {
     dispatch(getReviewStart());
     axios
-        .get('/users/' + id + '/reviews/')
+        .get(`/users/${id}/reviews/`)
         .then((res) => {
             dispatch(getReviewSuccess(res.data));
         })
@@ -73,7 +73,7 @@ export const getReview = (id) => (dispatch) => {
 export const postReview = (data, id) => (dispatch) => {
     dispatch(postReviewStart());
     axios
-        .post('/users/' + id + '/reviews/', qs.stringify(data))
+        .post(`/users/${id}/reviews/`, qs.stringify(data))
         .then((res) => {
             dispatch(postReviewSuccess(res.data));
         })
@@ -85,7 +85,7 @@ export const postReview = (data, id) => (dispatch) => {
 export const editReview = (data, id, reviewId) => (dispatch) => {
     dispatch(editReviewStart());
     axios
-        .put('/users/' + id + '/reviews/' + reviewId, qs.stringify(data))
+        .put(`/users/${id}/reviews/${reviewId}`, qs.stringify(data))
         .then((res) => {
             dispatch(editReviewSuccess(res.data));
         })
@@ -97,7 +97,7 @@ export const editReview = (data, id, reviewId) => (dispatch) => {
 export const delReview = (id, reviewId) => (dispatch) => {
     dispatch(delReviewStart());
     axios
-        .delete('/users/' + id + '/reviews/' + reviewId)
+        .delete(`/users/${id}/reviews/${reviewId}`)
         .then((res) => {
             dispatch(delReviewSuccess());
         })
@@ -108,7 +108,7 @@ export const delReview = (id, reviewId) => (dispatch) => {
 
 export const upvoteReview = (id, reviewId) => (dispatch) => {
     axios
-        .patch('/users/' + id + '/reviews/' + reviewId + '/upvote')
+        .patch(`/users/${id}/reviews/${reviewId}/upvote`)
         .then((res) => {
             dispatch(upvoteReviewSuccess());
         })
@@ -119,7 +119,7 @@ export const upvoteReview = (id, reviewId) => (dispatch) => {
 
 export const downvoteReview = (id, reviewId) => (dispatch) => {
     axios
-        .patch('/users/' + id + '/reviews/' + reviewId + '/downvote')
+        .patch(`/users/${id}/reviews/${reviewId}/downvote`)
         .then((res) => {
             dispatch(downvoteReviewSuccess());
         })
@@ -130,7 +130,7 @@ export const downvoteReview = (id, reviewId) => (dispatch) => {
 
 export const reportReview = (id, reviewId) => (dispatch) => {
     axios
-        .patch('/users/' + id + '/reviews/' + reviewId + '/report')
+        .patch(`/users/${id}/reviews/${reviewId}/report`)
         .then((res) => {
             dispatch(reportReviewSuccess());
         })
@@ -141,7 +141,7 @@ export const reportReview = (id, reviewId) => (dispatch) => {
 
 export const resolveReview = (id, reviewId) => (dispatch) => {
     axios
-        .patch('/users/' + id + '/reviews/' + reviewId + '/resolve')
+        .patch(`/users/${id}/reviews/${reviewId}/resolve`)
         .then((res) => {
             dispatch(resolveReviewSuccess());
         })

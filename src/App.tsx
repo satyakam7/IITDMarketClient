@@ -19,7 +19,7 @@ import {
     homeOutline,
     personOutline,
 } from 'ionicons/icons';
-import Home from './pages/home/home';
+import Home from './pages/home/home2';
 import Categories from './pages/categories/categories';
 import Chats from './pages/chats/chats';
 import MyAccount from './pages/myaccount/myaccount';

@@ -1,15 +1,11 @@
 import React from 'react';
 import {
     IonContent,
-    IonLabel,
-    IonSegment,
-    IonSegmentButton,
     IonPage,
     IonFab,
     IonFabButton,
     IonIcon,
     IonToolbar,
-    IonFabList,
     IonHeader,
     IonText,
     IonRow,
@@ -20,8 +16,6 @@ import {
     add,
     notificationsOutline,
     personCircle,
-    heart,
-    heartOutline,
     heartHalf,
     checkmarkCircle,
     lockClosed,
@@ -29,13 +23,9 @@ import {
     ribbon,
     ribbonOutline,
 } from 'ionicons/icons';
-import './home2.css';
-<<<<<<< HEAD
-=======
-import HeaderCard from '../../components/HeaderCard/HeaderCard';
-import ItemList from '../../components/ItemList/ItemList';
 
->>>>>>> a450edb73287d0882143cea1f855fb4413e2bc4e
+import './home2.css';
+
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import HeaderCard from '../../components/HeaderCard/HeaderCard';
@@ -80,8 +70,8 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
                     </IonToolbar>
                 </IonHeader>
                 <IonContent>
-                    <IonRow>
-                        <IonCol className="no-padding">
+                    <IonRow className="horizontal-scrolling">
+                        <IonCol size="8" className="banner-card">
                             <IonCard
                                 mode="ios"
                                 color="success"
@@ -97,7 +87,7 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
                                 <IonText className="card-text">Safe</IonText>
                             </IonCard>
                         </IonCol>
-                        <IonCol>
+                        <IonCol size="8" className="banner-card">
                             <IonCard
                                 mode="ios"
                                 color="danger"
@@ -113,9 +103,8 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
                                 <IonText className="card-text">Secure</IonText>
                             </IonCard>
                         </IonCol>
-                    </IonRow>
-                    <IonRow>
-                        <IonCol>
+
+                        <IonCol size="8" className="banner-card">
                             <IonCard
                                 mode="ios"
                                 color="warning"
@@ -131,7 +120,7 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
                                 <IonText className="card-text">Dynamic</IonText>
                             </IonCard>
                         </IonCol>
-                        <IonCol>
+                        <IonCol size="8" className="banner-card">
                             <IonCard
                                 mode="ios"
                                 color="tertiary"
@@ -154,9 +143,34 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
 
                     <IonToolbar>
                         <IonText>
-                            <h2 className="ion-padding">Choose a category</h2>
+                            <h2 className="ion-padding">
+                                <strong>Get Started !</strong>
+                            </h2>
                         </IonText>
                         <CategoryCard />
+                    </IonToolbar>
+
+                    <IonToolbar>
+                        <IonText>
+                            <h2 className="ion-padding">
+                                <strong>Trending Offers</strong>
+                            </h2>
+                        </IonText>
+
+                        <ItemList
+                            items={this.props.items}
+                            category={this.state.category}
+                        />
+                    </IonToolbar>
+
+                    <IonToolbar>
+                        <IonText>
+                            <h2 className="ion-padding">
+                                <strong>Offers From your Hostel</strong>
+                            </h2>
+                        </IonText>
+
+                        <ItemList items={this.props.items} category="bicycle" />
                     </IonToolbar>
 
                     <IonFab vertical="bottom" horizontal="end" slot="fixed">

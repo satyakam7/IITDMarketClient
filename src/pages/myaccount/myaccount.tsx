@@ -6,10 +6,6 @@ import {
     IonItem,
     IonLabel,
     IonToolbar,
-} from '@ionic/react';
-import './myaccount.css';
-import { RouteComponentProps } from 'react-router';
-import {
     IonButtons,
     IonBackButton,
     IonTitle,
@@ -21,6 +17,8 @@ import {
     IonInput,
     IonButton,
 } from '@ionic/react';
+import './myaccount.css';
+import { RouteComponentProps } from 'react-router';
 
 const Myaccount: React.FC<RouteComponentProps> = (props) => {
     return (
@@ -94,7 +92,7 @@ const Myaccount: React.FC<RouteComponentProps> = (props) => {
                                 <IonInput className="effect" placeholder="" />
                             </div>
                         </IonCol>
-                        <IonCol className="colgap" size="4"></IonCol>
+                        <IonCol className="colgap" size="4" />
                         <IonCol className="colgap" size="4">
                             <div>
                                 <IonLabel>Hostel</IonLabel>
@@ -103,7 +101,7 @@ const Myaccount: React.FC<RouteComponentProps> = (props) => {
                                 <IonInput className="effect" placeholder="" />
                             </div>
                         </IonCol>
-                        <IonCol className="colgap" size="4"></IonCol>
+                        <IonCol className="colgap" size="4" />
                         <IonCol className="colgap" size="12">
                             <IonButton>Update Info</IonButton>
                         </IonCol>

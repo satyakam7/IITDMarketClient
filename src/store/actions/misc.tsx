@@ -7,7 +7,7 @@ export const miscStart = () => ({
 
 export const miscFail = (err) => ({
     type: actionTypes.MISC_FAIL,
-    err: err,
+    err,
 });
 
 export const miscFollow = (category) => ({
@@ -22,7 +22,7 @@ export const miscUnfollow = (category) => ({
 
 export const miscNotifs = (notifs) => ({
     type: actionTypes.MISC_NOTIFS,
-    notifs: notifs,
+    notifs,
 });
 
 export const miscReport = (rep) => ({
@@ -33,7 +33,7 @@ export const miscReport = (rep) => ({
 export const follow = (cat) => (dispatch) => {
     dispatch(miscStart());
     axios
-        .patch('/follow/' + cat)
+        .patch(`/follow/${cat}`)
         .then((res) => {
             miscFollow(cat);
         })
@@ -45,7 +45,7 @@ export const follow = (cat) => (dispatch) => {
 export const unfollow = (cat) => (dispatch) => {
     dispatch(miscStart());
     axios
-        .patch('/unfollow/' + cat)
+        .patch(`/unfollow/${cat}`)
         .then((res) => {
             miscUnfollow(cat);
         })

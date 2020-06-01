@@ -21,8 +21,6 @@ import HeaderCard from '../../components/HeaderCard/HeaderCard';
 import ItemList from '../../components/ItemList/ItemList';
 // import CategoryCard from '../../components/CategoryCard/CategoryCard';
 
-import { connect } from 'react-redux';
-import { RouteComponentProps } from 'react-router';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
 class Home extends React.Component<RouteComponentProps & { items: any }, any> {

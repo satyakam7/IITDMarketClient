@@ -1,7 +1,6 @@
 import qs from 'querystring';
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-ins';
-import qs from 'querystring';
 
 export const authStart = () => ({
     type: actionTypes.AUTH_START,
@@ -9,7 +8,7 @@ export const authStart = () => ({
 
 export const authSuccess = (data) => ({
     type: actionTypes.AUTH_SUCCESS,
-    data: data,
+    data,
 });
 
 export const authFail = (err) => ({

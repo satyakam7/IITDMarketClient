@@ -1,0 +1,12 @@
+.item-card{
+    border-radius:0 px;
+}
+
+.item-card img{
+    height:160px;
+}
+
+
+.item-card-header{
+    padding : 10px 2px 2px 6px;
+}

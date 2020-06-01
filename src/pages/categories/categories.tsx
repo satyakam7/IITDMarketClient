@@ -8,7 +8,6 @@ import {
     IonBackButton,
     IonTitle,
 } from '@ionic/react';
-import CategoryCard from '../../components/CategoryCard/CategoryCard';
 import { RouteComponentProps } from 'react-router';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 
