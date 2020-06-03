@@ -11,7 +11,7 @@ import {
 import { RouteComponentProps } from 'react-router';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 
-const categories: React.FC<RouteComponentProps> = (props) => {
+const categories: React.FC<RouteComponentProps> = () => {
     return (
         <IonPage>
             <IonHeader style={{ padding: 0 }}>

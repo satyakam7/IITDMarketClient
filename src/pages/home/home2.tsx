@@ -20,7 +20,6 @@ import {
     checkmarkCircle,
     lockClosed,
     analytics,
-    ribbon,
     ribbonOutline,
 } from 'ionicons/icons';
 
@@ -28,13 +27,19 @@ import './home2.css';
 
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
-import HeaderCard from '../../components/HeaderCard/HeaderCard';
+// import HeaderCard from '../../components/HeaderCard/HeaderCard';
 import ItemList from '../../components/ItemList/ItemList';
 
 import SearchBar from '../../components/SearchBar/SearchBar';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 
-class Home extends React.Component<RouteComponentProps & { items: any }, any> {
+import { Item } from '../../utils/types';
+
+interface HomeProps {
+    items: Item[];
+}
+
+class Home extends React.Component<RouteComponentProps & HomeProps> {
     // eslint-disable-next-line react/destructuring-assignment
     // eslint-disable-next-line react/state-in-constructor
     state = {
@@ -42,6 +47,9 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
     };
 
     render() {
+        const { category } = this.state;
+        const { items, history } = this.props;
+
         return (
             <IonPage>
                 <IonHeader className="ion-no-border ">
@@ -157,10 +165,7 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
                             </h2>
                         </IonText>
 
-                        <ItemList
-                            items={this.props.items}
-                            category={this.state.category}
-                        />
+                        <ItemList items={items} category={category} />
                     </IonToolbar>
 
                     <IonToolbar>
@@ -170,16 +175,14 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
                             </h2>
                         </IonText>
 
-                        <ItemList items={this.props.items} category="bicycle" />
+                        <ItemList items={items} category="bicycle" />
                     </IonToolbar>
 
                     <IonFab vertical="bottom" horizontal="end" slot="fixed">
                         <IonFabButton>
                             <IonIcon
                                 icon={add}
-                                onClick={() =>
-                                    this.props.history.push('/postad')
-                                }
+                                onClick={() => history.push('/postad')}
                             />
                         </IonFabButton>
                     </IonFab>
@@ -189,7 +192,7 @@ class Home extends React.Component<RouteComponentProps & { items: any }, any> {
     }
 }
 
-const mapStatetoProps = (state: any) => {
+const mapStatetoProps = (state) => {
     return {
         items: state.item.items,
     };

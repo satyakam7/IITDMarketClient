@@ -49,18 +49,27 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import { authSuccess } from './store/actions/index';
 
-class App extends React.Component<any, any> {
+interface User {
+    name: string;
+    password: string;
+}
+
+type changeUserType = (user: User) => {};
+
+interface AppProps {
+    changeUser: changeUserType;
+}
+
+class App extends React.Component<AppProps> {
     componentDidMount() {
+        const { changeUser } = this.props;
         const eventUser = new EventSource('http://localhost:5000/streamUser');
-        eventUser.onmessage = (e) => this.props.changeUser(e.data);
+        eventUser.onmessage = (e) => changeUser(e.data);
         const data = {
             username: 'ssh',
             password: '12345',
         };
-        axios
-            .post('http://localhost:5000/login', qs.stringify(data))
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err.response));
+        axios.post('http://localhost:5000/login', qs.stringify(data));
     }
 
     render() {

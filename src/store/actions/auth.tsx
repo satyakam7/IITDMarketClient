@@ -35,7 +35,7 @@ export const auth = (data, isSignUp: boolean) => (dispatch) => {
 export const authLogout = () => (dispatch) => {
     axios
         .get('/logout')
-        .then((res) => {
+        .then(() => {
             dispatch({ type: actionTypes.AUTH_LOGOUT });
         })
         .catch((err) => {

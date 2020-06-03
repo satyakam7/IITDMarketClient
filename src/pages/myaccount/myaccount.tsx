@@ -20,7 +20,7 @@ import {
 import './myaccount.css';
 import { RouteComponentProps } from 'react-router';
 
-const Myaccount: React.FC<RouteComponentProps> = (props) => {
+const Myaccount: React.FC<RouteComponentProps> = () => {
     return (
         <IonPage>
             <IonHeader style={{ padding: 0 }}>

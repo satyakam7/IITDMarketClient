@@ -71,9 +71,10 @@ const initState = {
             image: '/images/book.jfif',
         },
     ],
+    category: 'all',
 };
 
-const itemReducer = (state = initState, action) => {
+const itemReducer = (state = initState) => {
     return state;
 };
 

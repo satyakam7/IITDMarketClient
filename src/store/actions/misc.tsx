@@ -34,7 +34,7 @@ export const follow = (cat) => (dispatch) => {
     dispatch(miscStart());
     axios
         .patch(`/follow/${cat}`)
-        .then((res) => {
+        .then(() => {
             miscFollow(cat);
         })
         .catch((err) => {
@@ -46,7 +46,7 @@ export const unfollow = (cat) => (dispatch) => {
     dispatch(miscStart());
     axios
         .patch(`/unfollow/${cat}`)
-        .then((res) => {
+        .then(() => {
             miscUnfollow(cat);
         })
         .catch((err) => {

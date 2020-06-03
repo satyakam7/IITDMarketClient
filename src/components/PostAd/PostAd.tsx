@@ -20,12 +20,12 @@ import {
 } from '@ionic/react';
 
 const PostAd: React.FC<RouteComponentProps> = () => {
-    const [name, setName] = useState<string>();
-    const [date, setDate] = useState<string>();
-    const [condition, setCondition] = useState<string>();
-    const [price, setPrice] = useState<string>();
-    const [category, setCategory] = useState<string>();
-    const [description, setDescription] = useState<string>();
+    const [name, setName] = useState('');
+    const [date, setDate] = useState('');
+    const [condition, setCondition] = useState('');
+    const [price, setPrice] = useState('');
+    const [category, setCategory] = useState('');
+    const [description, setDescription] = useState('');
 
     return (
         <IonPage>
@@ -48,7 +48,12 @@ const PostAd: React.FC<RouteComponentProps> = () => {
                             </IonLabel>
                             <IonInput
                                 value={name}
-                                onIonChange={(e) => setName(e.detail.value!)}
+                                onIonChange={(e) => {
+                                    const data = e.detail.value;
+                                    if (data !== null && data !== undefined) {
+                                        setName(data);
+                                    }
+                                }}
                                 required
                             />
                         </IonItem>
@@ -59,7 +64,12 @@ const PostAd: React.FC<RouteComponentProps> = () => {
                             <IonInput
                                 type="text"
                                 value={date}
-                                onIonChange={(e) => setDate(e.detail.value!)}
+                                onIonChange={(e) => {
+                                    const data = e.detail.value;
+                                    if (data !== null && data !== undefined) {
+                                        setDate(data);
+                                    }
+                                }}
                                 required
                             />
                         </IonItem>
@@ -69,9 +79,12 @@ const PostAd: React.FC<RouteComponentProps> = () => {
                             </IonLabel>
                             <IonInput
                                 value={condition}
-                                onIonChange={(e) =>
-                                    setCondition(e.detail.value!)
-                                }
+                                onIonChange={(e) => {
+                                    const data = e.detail.value;
+                                    if (data !== null && data !== undefined) {
+                                        setCondition(data);
+                                    }
+                                }}
                                 required
                             />
                         </IonItem>
@@ -83,7 +96,12 @@ const PostAd: React.FC<RouteComponentProps> = () => {
                                 value={category}
                                 okText="Select"
                                 cancelText="Dismiss"
-                                onIonChange={(e) => setCategory(e.detail.value)}
+                                onIonChange={(e) => {
+                                    const data = e.detail.value;
+                                    if (data !== null && data !== undefined) {
+                                        setCategory(data);
+                                    }
+                                }}
                             >
                                 <IonSelectOption>Laptops</IonSelectOption>
                                 <IonSelectOption>Mobile</IonSelectOption>
@@ -98,7 +116,12 @@ const PostAd: React.FC<RouteComponentProps> = () => {
                             </IonLabel>
                             <IonInput
                                 value={price}
-                                onIonChange={(e) => setPrice(e.detail.value!)}
+                                onIonChange={(e) => {
+                                    const data = e.detail.value;
+                                    if (data !== null && data !== undefined) {
+                                        setPrice(data);
+                                    }
+                                }}
                                 required
                             />
                         </IonItem>
@@ -108,9 +131,12 @@ const PostAd: React.FC<RouteComponentProps> = () => {
                             </IonLabel>
                             <IonInput
                                 value={description}
-                                onIonChange={(e) =>
-                                    setDescription(e.detail.value!)
-                                }
+                                onIonChange={(e) => {
+                                    const data = e.detail.value;
+                                    if (data !== null && data !== undefined) {
+                                        setDescription(data);
+                                    }
+                                }}
                                 required
                             />
                         </IonItem>

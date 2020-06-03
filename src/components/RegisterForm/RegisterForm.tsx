@@ -31,7 +31,12 @@ const RegisterForm: React.FC = () => {
                         </IonLabel>
                         <IonInput
                             value={uname}
-                            onIonChange={(e) => setUname(e.detail.value!)}
+                            onIonChange={(e) => {
+                                const data = e.detail.value;
+                                if (data !== null && data !== undefined) {
+                                    setUname(data);
+                                }
+                            }}
                             required
                         />
                     </IonItem>
@@ -42,7 +47,12 @@ const RegisterForm: React.FC = () => {
                         <IonInput
                             type="password"
                             value={pass}
-                            onIonChange={(e) => setPass(e.detail.value!)}
+                            onIonChange={(e) => {
+                                const data = e.detail.value;
+                                if (data !== null && data !== undefined) {
+                                    setPass(data);
+                                }
+                            }}
                             required
                         />
                     </IonItem>
@@ -52,7 +62,12 @@ const RegisterForm: React.FC = () => {
                         </IonLabel>
                         <IonInput
                             value={entryno}
-                            onIonChange={(e) => setEntryno(e.detail.value!)}
+                            onIonChange={(e) => {
+                                const data = e.detail.value;
+                                if (data !== null && data !== undefined) {
+                                    setEntryno(data);
+                                }
+                            }}
                             required
                         />
                     </IonItem>

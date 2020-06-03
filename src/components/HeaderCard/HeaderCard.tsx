@@ -9,10 +9,10 @@ import {
 import './HeaderCard.css';
 import { RouteComponentProps } from 'react-router-dom';
 
-const HeaderCard: React.FC<RouteComponentProps> = (props) => {
-    const clicked = (route: string) => {
-        props.history.push(route);
-    };
+const HeaderCard: React.FC<RouteComponentProps> = () => {
+    // const clicked = (route: string) => {
+    //     props.history.push(route);
+    // };
     return (
         <IonCard color="light">
             <IonCardHeader>

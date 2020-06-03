@@ -10,9 +10,9 @@ import {
 } from '@ionic/react';
 
 import { RouteComponentProps } from 'react-router';
-import HeaderCard from '../../components/HeaderCard/HeaderCard';
+// import HeaderCard from '../../components/HeaderCard/HeaderCard';
 
-const chats: React.FC<RouteComponentProps> = (props) => {
+const chats: React.FC<RouteComponentProps> = () => {
     return (
         <IonPage>
             <IonContent>

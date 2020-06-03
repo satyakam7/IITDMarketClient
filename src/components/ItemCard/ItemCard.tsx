@@ -3,16 +3,21 @@ import {
     IonCard,
     IonCardHeader,
     IonCardSubtitle,
-    IonText,
     IonIcon,
     IonToolbar,
 } from '@ionic/react';
 import './ItemCard.css';
 import { heartOutline } from 'ionicons/icons';
 
-class ItemCard extends React.Component<any, any> {
+import { Item } from '../../utils/types';
+
+interface ItemCardProps {
+    item: Item;
+}
+
+class ItemCard extends React.Component<ItemCardProps> {
     onWishlistClick = () => {
-        console.log('Added to wishlist');
+        // console.log('Added to wishlist');
     };
 
     render() {

@@ -10,7 +10,12 @@ const SearchBar: React.FC = () => {
                 mode="ios"
                 className="searchbar"
                 value={searchText}
-                onIonChange={(e) => setSearchText(e.detail.value!)}
+                onIonChange={(e) => {
+                    const data = e.detail.value;
+                    if (data !== null && data !== undefined) {
+                        setSearchText(data);
+                    }
+                }}
                 placeholder="Search"
             />
         </IonToolbar>

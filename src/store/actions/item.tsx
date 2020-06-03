@@ -102,7 +102,7 @@ export const delItem = (id) => (dispatch) => {
     dispatch(delItemStart());
     axios
         .delete(`/item/${id}`)
-        .then((res) => {
+        .then(() => {
             dispatch(delItemSuccess());
         })
         .catch((err) => {
@@ -114,7 +114,7 @@ export const selliniItem = (id, data) => (dispatch) => {
     dispatch(sellIniItemStart());
     axios
         .patch(`/item/${id}/sellIni`, qs.stringify(data))
-        .then((res) => {
+        .then(() => {
             dispatch(sellIniItemSuccess());
         })
         .catch((err) => {
@@ -126,7 +126,7 @@ export const sellfniItem = (id, data) => (dispatch) => {
     dispatch(sellFinItemStart());
     axios
         .patch(`/item/${id}/sellFin`, qs.stringify(data))
-        .then((res) => {
+        .then(() => {
             dispatch(sellFinItemSuccess());
         })
         .catch((err) => {
@@ -137,7 +137,7 @@ export const sellfniItem = (id, data) => (dispatch) => {
 export const reportItem = (id) => (dispatch) => {
     axios
         .patch(`/item/${id}/report`)
-        .then((res) => {
+        .then(() => {
             dispatch(reportItemSuccess());
         })
         .catch((err) => {

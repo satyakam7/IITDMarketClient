@@ -98,7 +98,7 @@ export const delReview = (id, reviewId) => (dispatch) => {
     dispatch(delReviewStart());
     axios
         .delete(`/users/${id}/reviews/${reviewId}`)
-        .then((res) => {
+        .then(() => {
             dispatch(delReviewSuccess());
         })
         .catch((err) => {
@@ -109,7 +109,7 @@ export const delReview = (id, reviewId) => (dispatch) => {
 export const upvoteReview = (id, reviewId) => (dispatch) => {
     axios
         .patch(`/users/${id}/reviews/${reviewId}/upvote`)
-        .then((res) => {
+        .then(() => {
             dispatch(upvoteReviewSuccess());
         })
         .catch((err) => {
@@ -120,7 +120,7 @@ export const upvoteReview = (id, reviewId) => (dispatch) => {
 export const downvoteReview = (id, reviewId) => (dispatch) => {
     axios
         .patch(`/users/${id}/reviews/${reviewId}/downvote`)
-        .then((res) => {
+        .then(() => {
             dispatch(downvoteReviewSuccess());
         })
         .catch((err) => {
@@ -131,7 +131,7 @@ export const downvoteReview = (id, reviewId) => (dispatch) => {
 export const reportReview = (id, reviewId) => (dispatch) => {
     axios
         .patch(`/users/${id}/reviews/${reviewId}/report`)
-        .then((res) => {
+        .then(() => {
             dispatch(reportReviewSuccess());
         })
         .catch((err) => {
@@ -142,7 +142,7 @@ export const reportReview = (id, reviewId) => (dispatch) => {
 export const resolveReview = (id, reviewId) => (dispatch) => {
     axios
         .patch(`/users/${id}/reviews/${reviewId}/resolve`)
-        .then((res) => {
+        .then(() => {
             dispatch(resolveReviewSuccess());
         })
         .catch((err) => {
