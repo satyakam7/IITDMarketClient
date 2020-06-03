@@ -4,16 +4,16 @@
 ****
 #### Week 1: 
 ##### Frontend
-- [x] UI layout for Home Page,
-- [x] UI layout for Login Page,
-- [x] UI layout for Sign up Page
+- [ ] UI layout for Home Page,
+- [ ] UI layout for Login Page,
+- [ ] UI layout for Sign up Page
 
 ****
 
 #### Week 2:
 ##### Frontend
-- [x] UI layout for Category browsing,
-- [x] UI layout for Item Detail Page,
+- [ ] UI layout for Category browsing,
+- [ ] UI layout for Item Detail Page,
 
 
 ****
