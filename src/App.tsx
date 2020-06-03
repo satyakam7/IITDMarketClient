@@ -1,5 +1,9 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
+import axios from 'axios';
+import EventSource from 'eventsource';
+import qs from 'querystring';
+import { connect } from 'react-redux';
 import {
     IonApp,
     IonIcon,
@@ -10,11 +14,22 @@ import {
     IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import {
+    chatboxOutline,
+    gridOutline,
+    homeOutline,
+    personOutline,
+} from 'ionicons/icons';
+import Home from './pages/home/home2';
+import Categories from './pages/categories/categories';
+import Chats from './pages/chats/chats';
+import MyAccount from './pages/myaccount/myaccount';
+/* new imports */
+import Register from './pages/register/register';
+import Health from './pages/Health/Health';
+import ItemDetail from './components/ItemDetail/ItemDetail';
 
+import PostAd from './components/PostAd/PostAd';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -33,38 +48,74 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { authSuccess } from './store/actions/index';
 
-const App: React.FC = () => (
-    <IonApp>
-        <IonReactRouter>
-            <IonTabs>
-                <IonRouterOutlet>
-                    <Route path="/tab1" component={Tab1} exact />
-                    <Route path="/tab2" component={Tab2} exact />
-                    <Route path="/tab3" component={Tab3} />
-                    <Route
-                        path="/"
-                        render={() => <Redirect to="/tab1" />}
-                        exact
-                    />
-                </IonRouterOutlet>
-                <IonTabBar slot="bottom">
-                    <IonTabButton tab="tab1" href="/tab1">
-                        <IonIcon icon={triangle} />
-                        <IonLabel>Tab 1</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab="tab2" href="/tab2">
-                        <IonIcon icon={ellipse} />
-                        <IonLabel>Tab 2</IonLabel>
-                    </IonTabButton>
-                    <IonTabButton tab="tab3" href="/tab3">
-                        <IonIcon icon={square} />
-                        <IonLabel>Tab 3</IonLabel>
-                    </IonTabButton>
-                </IonTabBar>
-            </IonTabs>
-        </IonReactRouter>
-    </IonApp>
-);
+interface User {
+    name: string;
+    password: string;
+}
 
-export default App;
+type changeUserType = (user: User) => {};
+
+interface AppProps {
+    changeUser: changeUserType;
+}
+
+class App extends React.Component<AppProps> {
+    componentDidMount() {
+        const { changeUser } = this.props;
+        const eventUser = new EventSource('http://localhost:5000/streamUser');
+        eventUser.onmessage = (e) => changeUser(e.data);
+        const data = {
+            username: 'ssh',
+            password: '12345',
+        };
+        axios.post('http://localhost:5000/login', qs.stringify(data));
+    }
+
+    render() {
+        return (
+            <IonApp>
+                <IonReactRouter>
+                    <IonTabs>
+                        <IonRouterOutlet>
+                            <Route path="/register" component={Register} />
+                            <Route path="/healthz" component={Health} />
+                            <Route path="/home" component={Home} />
+                            <Route path="/categories" component={Categories} />
+                            <Route path="/chats" component={Chats} />
+                            <Route path="/myaccount" component={MyAccount} />
+                            <Route path="/postad" component={PostAd} />
+                            <Route path="/itemdetail" component={ItemDetail} />
+                            <Redirect to="/home" />
+                        </IonRouterOutlet>
+                        <IonTabBar slot="bottom">
+                            <IonTabButton tab="home" href="/home">
+                                <IonIcon size="small" icon={homeOutline} />
+                                <IonLabel>Home</IonLabel>
+                            </IonTabButton>
+                            <IonTabButton tab="categories" href="/categories">
+                                <IonIcon size="small" icon={gridOutline} />
+                                <IonLabel>Categories</IonLabel>
+                            </IonTabButton>
+                            <IonTabButton tab="chats" href="/chats">
+                                <IonIcon size="small" icon={chatboxOutline} />
+                                <IonLabel>Chats</IonLabel>
+                            </IonTabButton>
+                            <IonTabButton tab="myaccount" href="/myaccount">
+                                <IonIcon size="small" icon={personOutline} />
+                                <IonLabel>My Account</IonLabel>
+                            </IonTabButton>
+                        </IonTabBar>
+                    </IonTabs>
+                </IonReactRouter>
+            </IonApp>
+        );
+    }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    changeUser: (data) => dispatch(authSuccess(data)),
+});
+
+export default connect(null, mapDispatchToProps)(App);
