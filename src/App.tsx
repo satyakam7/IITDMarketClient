@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import axios from 'axios';
+import EventSource from 'eventsource';
 import qs from 'querystring';
 import { connect } from 'react-redux';
 import {
