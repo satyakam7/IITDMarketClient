@@ -4,7 +4,7 @@ export interface Item {
     price: string;
     category: string;
     image: string;
-    date: string;
+    date: Date;
     condition: string;
     description: string;
 }

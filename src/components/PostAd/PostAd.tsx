@@ -36,7 +36,7 @@ class PostAd extends React.Component<PostAdProps, Item> {
         this.state = {
             id: 10,
             name: '',
-            date: '',
+            date: new Date('00/00/0000'),
             condition: '',
             price: '',
             category: '',
@@ -54,6 +54,7 @@ class PostAd extends React.Component<PostAdProps, Item> {
     handleSubmit = (e) => {
         const { postItem: postitem } = this.props;
         e.preventDefault();
+        // console.log(this.state);
         const newItem: Item = { ...this.state };
         postitem(newItem);
     };
@@ -94,11 +95,11 @@ class PostAd extends React.Component<PostAdProps, Item> {
                                 />
                             </IonItem>
                             <IonItem>
-                                <IonLabel color="medium" position="floating">
-                                    Tentative Date of Purchase
+                                <IonLabel color="medium">
+                                    Date of Purchase
                                 </IonLabel>
                                 <IonInput
-                                    type="text"
+                                    type="date"
                                     id="date"
                                     onIonChange={(e) => {
                                         const data = e.detail.value;
@@ -106,7 +107,9 @@ class PostAd extends React.Component<PostAdProps, Item> {
                                             data !== null &&
                                             data !== undefined
                                         ) {
-                                            this.setState({ name: data });
+                                            this.setState({
+                                                date: new Date(data),
+                                            });
                                         }
                                     }}
                                     required
@@ -125,7 +128,7 @@ class PostAd extends React.Component<PostAdProps, Item> {
                                             data !== null &&
                                             data !== undefined
                                         ) {
-                                            this.setState({ name: data });
+                                            this.setState({ condition: data });
                                         }
                                     }}
                                     required
@@ -202,6 +205,7 @@ class PostAd extends React.Component<PostAdProps, Item> {
 
                         <div className="btn">
                             <IonButton
+                                onClick={this.handleSubmit}
                                 class="regbuttons"
                                 shape="round"
                                 expand="full"

@@ -87,7 +87,7 @@ const ItemDetail: React.FC<
                     <IonText>
                         <ul>
                             <li> {item.condition} </li>
-                            <li> Bought on {item.date} </li>
+                            <li> Bought on {item.date.toDateString()} </li>
                             <li> {item.description} </li>
                             <li>...</li>
                             <li>...</li>
