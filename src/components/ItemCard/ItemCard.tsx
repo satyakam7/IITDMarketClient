@@ -8,6 +8,7 @@ import {
 } from '@ionic/react';
 import './ItemCard.css';
 import { heartOutline } from 'ionicons/icons';
+import { Link } from 'react-router-dom';
 
 import { Item } from '../../utils/types';
 
@@ -24,17 +25,23 @@ class ItemCard extends React.Component<ItemCardProps> {
         const { item } = this.props;
         return (
             <div>
-                <IonCard
-                    style={{ margin: '0' }}
-                    routerLink="/itemdetail"
-                    className="item-card"
-                >
-                    <img src={item.image} alt="cardImg" />
+                <IonCard style={{ margin: '0' }} className="item-card">
+                    <Link
+                        to={`/itemdetail/${item.id}`}
+                        style={{ textDecoration: 'none' }}
+                    >
+                        <img src={item.image} alt="cardImg" />
+                    </Link>
                     <IonCardHeader className="item-card-header">
-                        <IonCardSubtitle>
-                            <strong>{item.name.toUpperCase()}</strong>
-                        </IonCardSubtitle>{' '}
-                        {item.category.toUpperCase()}
+                        <Link
+                            to={`/itemdetail/${item.id}`}
+                            style={{ textDecoration: 'none', color: 'inherit' }}
+                        >
+                            <IonCardSubtitle>
+                                <strong>{item.name.toUpperCase()}</strong>
+                            </IonCardSubtitle>{' '}
+                            {item.category.toUpperCase()}
+                        </Link>
                         <IonToolbar>
                             Rs.{item.price}
                             <IonIcon

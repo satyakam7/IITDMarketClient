@@ -27,6 +27,7 @@ import MyAccount from './pages/myaccount/myaccount';
 import Register from './pages/register/register';
 import Health from './pages/Health/Health';
 import ItemDetail from './components/ItemDetail/ItemDetail';
+import CategoryDetail from './components/CategoryDetail/CategoryDetail';
 
 import PostAd from './components/PostAd/PostAd';
 /* Core CSS required for Ionic components to work properly */
@@ -85,7 +86,14 @@ class App extends React.Component<AppProps> {
                             <Route path="/chats" component={Chats} />
                             <Route path="/myaccount" component={MyAccount} />
                             <Route path="/postad" component={PostAd} />
-                            <Route path="/itemdetail" component={ItemDetail} />
+                            <Route
+                                path="/itemdetail/:id"
+                                component={ItemDetail}
+                            />
+                            <Route
+                                path="/category/:categoryname"
+                                component={CategoryDetail}
+                            />
                             <Redirect to="/home" />
                         </IonRouterOutlet>
                         <IonTabBar slot="bottom">
