@@ -25,6 +25,7 @@ import { postItem } from '../../store/actions/item';
 import { Item } from '../../utils/types';
 
 type postItemType = (item: Item) => {};
+
 interface PostAdProps {
     postItem: postItemType;
 }
@@ -33,7 +34,7 @@ class PostAd extends React.Component<PostAdProps, Item> {
     constructor(props) {
         super(props);
         this.state = {
-            id: 123,
+            id: 10,
             name: '',
             date: '',
             condition: '',
@@ -51,10 +52,10 @@ class PostAd extends React.Component<PostAdProps, Item> {
     // };
 
     handleSubmit = (e) => {
-        const { postItem } = this.props;
+        const { postItem: postitem } = this.props;
         e.preventDefault();
         const newItem: Item = { ...this.state };
-        postItem(newItem);
+        postitem(newItem);
     };
 
     render() {
