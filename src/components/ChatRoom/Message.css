@@ -1,0 +1,12 @@
+.text-message{
+    background-color: #f4f5f8;
+    padding:8px;
+    margin:10px;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+.text-message-username{
+    
+    font-weight: 550;
+}

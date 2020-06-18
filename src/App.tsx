@@ -29,6 +29,7 @@ import Register from './pages/register/register';
 import Health from './pages/Health/Health';
 import ItemDetail from './components/ItemDetail/ItemDetail';
 import CategoryDetail from './components/CategoryDetail/CategoryDetail';
+import ChatRoom from './components/ChatRoom/ChatRoom';
 
 import PostAd from './components/PostAd/PostAd';
 /* Core CSS required for Ionic components to work properly */
@@ -94,6 +95,14 @@ class App extends React.Component<AppProps> {
                             <Route
                                 path="/category/:categoryname"
                                 component={CategoryDetail}
+                            />
+                            <Route
+                                path="/category/:categoryname"
+                                component={CategoryDetail}
+                            />
+                            <Route
+                                path="/chatroom/:chatid"
+                                component={ChatRoom}
                             />
                             <Redirect to="/home" />
                         </IonRouterOutlet>

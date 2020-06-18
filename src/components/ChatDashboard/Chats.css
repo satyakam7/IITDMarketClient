@@ -1,0 +1,16 @@
+.chat-card{
+    border : 1px solid #3880ff;
+    border-radius: 10px;
+    padding:4px;
+}
+
+.chat-dashboard{
+    padding:10px;
+}
+
+.chat-status{
+    color: grey;
+    padding-left: 7%;
+    font-size: 12px;
+    font-weight: 600;
+}

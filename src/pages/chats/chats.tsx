@@ -10,6 +10,8 @@ import {
 } from '@ionic/react';
 
 import { RouteComponentProps } from 'react-router';
+import ChatDashboard from '../../components/ChatDashboard/ChatDashboard';
+
 // import HeaderCard from '../../components/HeaderCard/HeaderCard';
 
 const chats: React.FC<RouteComponentProps> = () => {
@@ -24,6 +26,7 @@ const chats: React.FC<RouteComponentProps> = () => {
                         <IonTitle>Chats</IonTitle>
                     </IonToolbar>
                 </IonHeader>
+                <ChatDashboard />
             </IonContent>
         </IonPage>
     );
