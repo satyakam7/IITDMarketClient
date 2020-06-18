@@ -45,6 +45,7 @@ const ItemDetail: React.FC<
                             color="primary"
                         >
                             Rs. {item.price} <br />
+                            {item.name.toUpperCase()}
                         </IonCardTitle>
                         <IonToolbar style={{ textAlign: 'center' }}>
                             <img src={item.image} alt={item.name} />
