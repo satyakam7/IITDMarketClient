@@ -16,8 +16,23 @@ import {
     IonText,
 } from '@ionic/react';
 import { locationOutline } from 'ionicons/icons';
+import { RouteComponentProps } from 'react-router';
+import { connect } from 'react-redux';
 
-const ItemDetail: React.FC = () => {
+import { Item } from '../../utils/types';
+
+interface MatchParams {
+    id: string;
+}
+
+interface ItemDetailProps {
+    item: Item;
+}
+
+const ItemDetail: React.FC<
+    RouteComponentProps<MatchParams> & ItemDetailProps
+> = (props) => {
+    const { item } = props;
     return (
         <IonPage>
             <IonHeader className="ion-no-border" />
@@ -29,18 +44,18 @@ const ItemDetail: React.FC = () => {
                             style={{ marginBottom: '1em' }}
                             color="primary"
                         >
-                            Rs. 40000
+                            Rs. {item.price} <br />
                         </IonCardTitle>
                         <IonToolbar style={{ textAlign: 'center' }}>
-                            <img src="/images/laptop.jfif" alt="" />
+                            <img src={item.image} alt={item.name} />
                         </IonToolbar>
                     </IonCardHeader>
                     <IonCardContent>
                         <IonChip outline color="primary">
-                            <IonLabel>Electronics</IonLabel>
+                            <IonLabel>{item.category}</IonLabel>
                         </IonChip>
                         <IonChip outline color="primary">
-                            <IonLabel>Laptops</IonLabel>
+                            <IonLabel>tags</IonLabel>
                         </IonChip>
                     </IonCardContent>
                 </IonCard>
@@ -49,7 +64,7 @@ const ItemDetail: React.FC = () => {
                         <IonCardSubtitle>Seller Details</IonCardSubtitle>
                     </IonCardHeader>
                     <IonCardContent style={{ textAlign: 'center' }}>
-                        <IonText>N. Satwik</IonText>
+                        <IonText>Seller Name</IonText>
                         <IonText>
                             <h4>
                                 {' '}
@@ -57,7 +72,7 @@ const ItemDetail: React.FC = () => {
                                     color="primary"
                                     icon={locationOutline}
                                 />{' '}
-                                Zanskar House
+                                Seller Hostel
                             </h4>
                         </IonText>
                         <IonButton style={{ marginTop: '1em' }} expand="block">
@@ -71,9 +86,9 @@ const ItemDetail: React.FC = () => {
                     </IonCardHeader>
                     <IonText>
                         <ul>
-                            <li>4 months old</li>
-                            <li>8 GB RAM, 512 GB SSD, i5 9th gen</li>
-                            <li>RGB keyboard</li>
+                            <li> {item.condition} </li>
+                            <li> Bought on {item.date.toDateString()} </li>
+                            <li> {item.description} </li>
                             <li>...</li>
                             <li>...</li>
                         </ul>
@@ -90,4 +105,13 @@ const ItemDetail: React.FC = () => {
     );
 };
 
-export default ItemDetail;
+const mapStateToProps = (state, ownProps) => {
+    const { id } = ownProps.match.params;
+    const { items } = state.item;
+    const item = items ? items[id - 1] : null;
+    return {
+        item,
+    };
+};
+
+export default connect(mapStateToProps)(ItemDetail);
