@@ -8,9 +8,9 @@ import {
     IonToolbar,
     IonHeader,
     IonText,
-    IonRow,
-    IonCol,
     IonCard,
+    IonSlides,
+    IonSlide,
 } from '@ionic/react';
 import {
     add,
@@ -38,7 +38,11 @@ import { Item } from '../../utils/types';
 interface HomeProps {
     items: Item[];
 }
-
+const slideOpts = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    speed: 400,
+};
 class Home extends React.Component<RouteComponentProps & HomeProps> {
     // eslint-disable-next-line react/destructuring-assignment
     // eslint-disable-next-line react/state-in-constructor
@@ -78,8 +82,8 @@ class Home extends React.Component<RouteComponentProps & HomeProps> {
                     </IonToolbar>
                 </IonHeader>
                 <IonContent>
-                    <IonRow className="horizontal-scrolling">
-                        <IonCol size="8" className="banner-card">
+                    <IonSlides pager options={slideOpts}>
+                        <IonSlide>
                             <IonCard
                                 mode="ios"
                                 color="success"
@@ -94,8 +98,8 @@ class Home extends React.Component<RouteComponentProps & HomeProps> {
                                 <br />
                                 <IonText className="card-text">Safe</IonText>
                             </IonCard>
-                        </IonCol>
-                        <IonCol size="8" className="banner-card">
+                        </IonSlide>
+                        <IonSlide>
                             <IonCard
                                 mode="ios"
                                 color="danger"
@@ -110,25 +114,8 @@ class Home extends React.Component<RouteComponentProps & HomeProps> {
                                 <br />
                                 <IonText className="card-text">Secure</IonText>
                             </IonCard>
-                        </IonCol>
-
-                        <IonCol size="8" className="banner-card">
-                            <IonCard
-                                mode="ios"
-                                color="warning"
-                                className="card"
-                                button
-                            >
-                                <IonIcon
-                                    icon={analytics}
-                                    color="light"
-                                    className="card-icon"
-                                />
-                                <br />
-                                <IonText className="card-text">Dynamic</IonText>
-                            </IonCard>
-                        </IonCol>
-                        <IonCol size="8" className="banner-card">
+                        </IonSlide>
+                        <IonSlide>
                             <IonCard
                                 mode="ios"
                                 color="tertiary"
@@ -145,10 +132,25 @@ class Home extends React.Component<RouteComponentProps & HomeProps> {
                                     Friendly
                                 </IonText>
                             </IonCard>
-                        </IonCol>
-                    </IonRow>
+                        </IonSlide>
+                        <IonSlide>
+                            <IonCard
+                                mode="ios"
+                                color="warning"
+                                className="card"
+                                button
+                            >
+                                <IonIcon
+                                    icon={analytics}
+                                    color="light"
+                                    className="card-icon"
+                                />
+                                <br />
+                                <IonText className="card-text">Dynamic</IonText>
+                            </IonCard>
+                        </IonSlide>
+                    </IonSlides>
                     <br />
-
                     <IonToolbar>
                         <IonText>
                             <h2 className="ion-padding">
