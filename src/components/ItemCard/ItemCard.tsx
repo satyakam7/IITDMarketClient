@@ -30,7 +30,7 @@ class ItemCard extends React.Component<ItemCardProps> {
                         to={`/itemdetail/${item.id}`}
                         style={{ textDecoration: 'none' }}
                     >
-                        <img src={item.image} alt="cardImg" />
+                        {/* <img src={item.image.url} alt="cardImg" /> */}
                     </Link>
                     <IonCardHeader className="item-card-header">
                         <Link

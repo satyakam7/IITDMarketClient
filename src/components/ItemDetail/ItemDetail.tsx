@@ -48,7 +48,7 @@ const ItemDetail: React.FC<
                             {item.name.toUpperCase()}
                         </IonCardTitle>
                         <IonToolbar style={{ textAlign: 'center' }}>
-                            <img src={item.image} alt={item.name} />
+                            {/*  <img src={item.image} alt={item.name} /> */}
                         </IonToolbar>
                     </IonCardHeader>
                     <IonCardContent>
