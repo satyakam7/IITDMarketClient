@@ -3,10 +3,12 @@ export interface Item {
     name: string;
     price: string;
     category: string;
-    image: string;
     date: Date;
     condition: string;
     description: string;
+    image: { url: string };
+    imageList: { url: string }[];
+    anonymous: boolean;
 }
 
 export interface User {

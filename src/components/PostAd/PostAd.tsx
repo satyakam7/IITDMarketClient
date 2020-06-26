@@ -17,9 +17,13 @@ import {
     IonHeader,
     IonButtons,
     IonBackButton,
+    IonIcon,
+    IonCheckbox,
+    IonText,
 } from '@ionic/react';
 
 import { connect } from 'react-redux';
+import { addCircle } from 'ionicons/icons';
 import { postItem } from '../../store/actions/item';
 
 import { Item } from '../../utils/types';
@@ -41,7 +45,9 @@ class PostAd extends React.Component<PostAdProps, Item> {
             price: '',
             category: '',
             description: '',
-            image: '',
+            image: { url: '' },
+            imageList: [{ url: '' }],
+            anonymous: false,
         };
     }
 
@@ -51,6 +57,15 @@ class PostAd extends React.Component<PostAdProps, Item> {
     //     });
     // };
 
+    /* addImage = () => {
+        const { image, imageList } = this.state;
+        this.setState({ imageList : [...imageList,image]} )
+    } */
+
+    /* addImageField = () => {
+
+    } */
+
     handleSubmit = (e) => {
         const { postItem: postitem } = this.props;
         e.preventDefault();
@@ -59,7 +74,23 @@ class PostAd extends React.Component<PostAdProps, Item> {
         postitem(newItem);
     };
 
+    handleImageInputChange = (e, index) => {
+        const { imageList } = this.state;
+        const { name, value } = e.target;
+        const list = [...imageList];
+        list[index][name] = value;
+        this.setState({ imageList: list });
+    };
+
+    handleAddClick = () => {
+        const { imageList } = this.state;
+        const list = [...imageList];
+        list.push({ url: '' });
+        this.setState({ imageList: list });
+    };
+
     render() {
+        const { imageList } = this.state;
         return (
             <IonPage>
                 <IonContent>
@@ -94,6 +125,7 @@ class PostAd extends React.Component<PostAdProps, Item> {
                                     required
                                 />
                             </IonItem>
+                            <br />
                             <IonItem>
                                 <IonLabel color="medium">
                                     Date of Purchase
@@ -201,7 +233,60 @@ class PostAd extends React.Component<PostAdProps, Item> {
                                     required
                                 />
                             </IonItem>
+                            <br />
+
+                            {imageList.map((x, i) => {
+                                return (
+                                    <IonItem>
+                                        <IonLabel color="medium">
+                                            Image Link{' '}
+                                        </IonLabel>
+                                        <IonInput
+                                            name="url"
+                                            value={x.url}
+                                            onIonChange={(e) =>
+                                                this.handleImageInputChange(
+                                                    e,
+                                                    i
+                                                )
+                                            }
+                                        />
+                                        <IonIcon
+                                            icon={addCircle}
+                                            slot="end"
+                                            onClick={this.handleAddClick}
+                                        />
+                                    </IonItem>
+                                );
+                            })}
+                            <br />
+
+                            <IonItem>
+                                <IonCheckbox
+                                    color="dark"
+                                    onIonChange={(e) =>
+                                        this.setState({
+                                            anonymous: e.detail.checked,
+                                        })
+                                    }
+                                />
+                                <IonLabel color="medium">
+                                    Post Anonymously
+                                </IonLabel>
+                            </IonItem>
                         </IonList>
+
+                        <br />
+                        <br />
+
+                        <IonToolbar>
+                            <IonText>
+                                Disclaimer: IITD Market has a strict moderation
+                                policy against items prohitbited in the
+                                institute. Such items will be taken down and the
+                                user will be banned from the app permanently
+                            </IonText>
+                        </IonToolbar>
 
                         <div className="btn">
                             <IonButton
