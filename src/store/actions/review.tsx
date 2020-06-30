@@ -15,9 +15,8 @@ export const postReviewStart = () => ({
     type: actionTypes.REVIEW_POST_START,
 });
 
-export const postReviewSuccess = (data) => ({
+export const postReviewSuccess = () => ({
     type: actionTypes.REVIEW_POST_SUCCESS,
-    data,
 });
 
 export const reviewFail = (err) => ({
@@ -42,12 +41,14 @@ export const delReviewSuccess = () => ({
     type: actionTypes.REVIEW_DEL_SUCCESS,
 });
 
-export const upvoteReviewSuccess = () => ({
+export const upvoteReviewSuccess = (data) => ({
     type: actionTypes.REVIEW_UPVOTE_SUCCESS,
+    data,
 });
 
-export const downvoteReviewSuccess = () => ({
+export const downvoteReviewSuccess = (data) => ({
     type: actionTypes.REVIEW_DOWNVOTE_SUCCESS,
+    data,
 });
 
 export const reportReviewSuccess = () => ({
@@ -74,8 +75,8 @@ export const postReview = (data, id) => (dispatch) => {
     dispatch(postReviewStart());
     axios
         .post(`/users/${id}/reviews/`, qs.stringify(data))
-        .then((res) => {
-            dispatch(postReviewSuccess(res.data));
+        .then(() => {
+            dispatch(postReviewSuccess());
         })
         .catch((err) => {
             dispatch(reviewFail(err));
@@ -109,8 +110,8 @@ export const delReview = (id, reviewId) => (dispatch) => {
 export const upvoteReview = (id, reviewId) => (dispatch) => {
     axios
         .patch(`/users/${id}/reviews/${reviewId}/upvote`)
-        .then(() => {
-            dispatch(upvoteReviewSuccess());
+        .then((res) => {
+            dispatch(upvoteReviewSuccess(res.data));
         })
         .catch((err) => {
             dispatch(reviewFail(err));
@@ -120,8 +121,8 @@ export const upvoteReview = (id, reviewId) => (dispatch) => {
 export const downvoteReview = (id, reviewId) => (dispatch) => {
     axios
         .patch(`/users/${id}/reviews/${reviewId}/downvote`)
-        .then(() => {
-            dispatch(downvoteReviewSuccess());
+        .then((res) => {
+            dispatch(downvoteReviewSuccess(res.data));
         })
         .catch((err) => {
             dispatch(reviewFail(err));

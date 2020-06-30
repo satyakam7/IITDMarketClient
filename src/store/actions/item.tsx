@@ -11,6 +11,11 @@ export const getItemSuccess = (data) => ({
     data,
 });
 
+export const getSingleItemSuccess = (data) => ({
+    type: actionTypes.ITEM_SINGLE_SUCCESS,
+    data,
+});
+
 export const postItemStart = () => ({
     type: actionTypes.ITEM_POST_START,
 });
@@ -62,10 +67,26 @@ export const reportItemSuccess = () => ({
     type: actionTypes.ITEM_REPORT_SUCCESS,
 });
 
-export const getItem = () => (dispatch) => {
+export const resolveItemSuccess = () => ({
+    type: actionTypes.ITEM_RESOLVE_SUCCESS,
+});
+
+export const getItem = (search, page) => (dispatch) => {
     dispatch(getItemStart());
     axios
-        .get('/item')
+        .get(`/item?${search}&${page}`)
+        .then((res) => {
+            dispatch(getItemSuccess(res.data));
+        })
+        .catch((err) => {
+            dispatch(itemFail(err));
+        });
+};
+
+export const getItemCat = (search, page, cat) => (dispatch) => {
+    dispatch(getItemStart());
+    axios
+        .get(`/item/cat/${cat}?${search}&${page}`)
         .then((res) => {
             dispatch(getItemSuccess(res.data));
         })
@@ -80,6 +101,18 @@ export const postItem = (data) => (dispatch) => {
         .post('/item', qs.stringify(data))
         .then((res) => {
             dispatch(postItemSuccess(res.data));
+        })
+        .catch((err) => {
+            dispatch(itemFail(err));
+        });
+};
+
+export const singleItemDetail = (id) => (dispatch) => {
+    dispatch(getItemStart());
+    axios
+        .get(`/item/${id}`)
+        .then((res) => {
+            dispatch(getSingleItemSuccess(res.data));
         })
         .catch((err) => {
             dispatch(itemFail(err));
@@ -139,6 +172,17 @@ export const reportItem = (id) => (dispatch) => {
         .patch(`/item/${id}/report`)
         .then(() => {
             dispatch(reportItemSuccess());
+        })
+        .catch((err) => {
+            dispatch(itemFail(err));
+        });
+};
+
+export const resolveItem = (id) => (dispatch) => {
+    axios
+        .patch(`/item/${id}/resolve`)
+        .then(() => {
+            dispatch(resolveItemSuccess());
         })
         .catch((err) => {
             dispatch(itemFail(err));

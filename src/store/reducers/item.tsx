@@ -56,6 +56,8 @@ const initState = {
         },
     ],
     category: 'all',
+    page: 1,
+    search: '',
 };
 
 const itemReducer = (state = initState) => {
