@@ -1,7 +1,9 @@
+import * as actionTypes from '../actions/actionTypes';
+
 const initState = {
     items: [
         {
-            id: 1,
+            _id: 1,
             name: 'Asus Laptop',
             price: 40000,
             category: 'laptop',
@@ -12,7 +14,7 @@ const initState = {
         },
 
         {
-            id: 2,
+            _id: 2,
             name: 'Hero Thunderbird',
             price: 4000,
             category: 'bicycle',
@@ -23,7 +25,7 @@ const initState = {
         },
 
         {
-            id: 3,
+            _id: 3,
             name: 'Samsung S10e',
             price: 25000,
             category: 'mobile',
@@ -34,7 +36,7 @@ const initState = {
         },
 
         {
-            id: 4,
+            _id: 4,
             name: 'Kurl On memory foam ',
             price: 2000,
             category: 'matteress',
@@ -45,7 +47,7 @@ const initState = {
         },
 
         {
-            id: 5,
+            _id: 5,
             name: 'Order of the phoenix',
             price: 300,
             category: 'book',
@@ -56,10 +58,48 @@ const initState = {
         },
     ],
     category: 'all',
+    currentPage: 1,
+    pages: null,
+    search: '',
+    noMatch: null,
+    error: null,
+    loading: false,
 };
 
-const itemReducer = (state = initState) => {
-    return state;
+const itemReducer = (state = initState, action) => {
+    switch (action.type) {
+        case actionTypes.ITEM_FAIL:
+            return {
+                ...state,
+                error: action.err,
+                loading: false,
+            };
+        case actionTypes.ITEM_START:
+            return {
+                ...state,
+                loading: true,
+            };
+        case actionTypes.ITEM_SINGLE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                items: state.items.map((val) => {
+                    // eslint-disable-next-line no-underscore-dangle
+                    return val._id === action.id ? action.data : val;
+                }),
+            };
+        case actionTypes.ITEM_SUCCESS:
+            return {
+                ...state,
+                ...action.data,
+                category: action.category,
+                loading: false,
+                error: null,
+            };
+        default:
+            return state;
+    }
 };
 
 export default itemReducer;
