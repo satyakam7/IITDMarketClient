@@ -11,8 +11,13 @@ export const setUserPStack = (userPStack) => ({
 });
 
 export const setChatsData = (chats) => ({
-    type: actionTypes.CHAT_USER_PSTACK,
+    type: actionTypes.CHAT_USER_CHATS_INIT,
     chats,
+});
+
+export const setOldChatsData = (chats) => ({
+    type: actionTypes.CHAT_USER_CHATS,
+    ...chats,
 });
 
 export const setCurrentRoom = (id) => ({
@@ -22,12 +27,13 @@ export const setCurrentRoom = (id) => ({
 
 export const roomMsg = (data) => ({
     type: actionTypes.CHAT_ROOM_MESSAGE,
-    data,
+    ...data,
 });
 
-export const readRoom = (chatId: string) => ({
+export const readRoom = (chatId: string, username: string) => ({
     type: actionTypes.CHAT_ROOM_READ,
     chatId,
+    username,
 });
 
 export const pokeUser = (fn) => {
@@ -44,12 +50,17 @@ export const readMsg = (
     user: { username: string; _id: string }
 ) => (dispatch) => {
     socket.emit('readMsg', { chatId, user });
-    dispatch(readRoom(chatId));
+    dispatch(readRoom(chatId, user.username));
 };
 
 export const socketMount = (socket: SocketIOClient.Socket) => ({
     type: actionTypes.SOCKET_MOUNT,
     socket,
+});
+
+export const updateMsg = (data) => ({
+    type: actionTypes.CHAT_UPDATE_MSG,
+    ...data,
 });
 
 export const oldChats = (
@@ -136,8 +147,11 @@ export const mountChat = (username, id, socket: SocketIOClient.Socket) => (
     // socket.on('recChatData', (chats) => {
     //     dispatch(setChatsData(chats));
     // });
-    socket.on('oldChats', (data) => {
+    socket.on('oldIniChats', (data) => {
         dispatch(setChatsData(data));
+    });
+    socket.on('oldChats', (data) => {
+        dispatch(setOldChatsData(data));
     });
     socket.on('setRoom', (data) => {
         dispatch(setCurrentRoom(data));
@@ -158,6 +172,9 @@ export const mountChat = (username, id, socket: SocketIOClient.Socket) => (
     });
     socket.on('error', (data) => {
         dispatch(socketError(data));
+    });
+    socket.on('updateMsg', (data) => {
+        dispatch(updateMsg(data));
     });
 };
 
