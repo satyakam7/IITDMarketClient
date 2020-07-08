@@ -23,7 +23,7 @@ import {
 import Home from './pages/home/home2';
 import Categories from './pages/categories/categories';
 import Chats from './pages/chats/chats';
-import MyAccount from './pages/myaccount/myaccount';
+import MyAccount from './pages/myaccount/myaccount2';
 /* new imports */
 import Register from './pages/register/register';
 import Health from './pages/Health/Health';

@@ -1,0 +1,22 @@
+.profile-header-card{
+    border-radius: 15px;
+    background-color: #3880ff ;
+    color: white;
+    text-align: center;
+    
+}
+
+.profile-header-img{
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+}
+
+.profile-menu-card{
+    border-radius: 15px;
+}
+
+.profile-menu{
+    padding:0;
+    color: #92949c;
+}
