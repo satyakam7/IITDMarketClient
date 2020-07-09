@@ -1,6 +1,6 @@
 # IITDMarketClient
 
-Proposal for a marketplace which can be used by IITD students to buy/sell items.
+A marketplace to buy/sell within the IITD community
 
 ## Proposed features - v1.0
 - All updates to be complete overwriting in stage 1 later to be done atomically
