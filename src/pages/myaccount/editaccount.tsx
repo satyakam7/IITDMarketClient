@@ -13,10 +13,10 @@ import {
 import './editaccount.css';
 
 const EditAccount: React.FC = () => {
-    const [name, setName] = useState<string>("John Doe");
-    const [email, setEmail] = useState<string>("johndoe@example.com");
-    const [contact, setContact] = useState<string>("9999999999");
-    const [hostel, setHostel] = useState<string>("Zanskar");
+    const [name, setName] = useState<string>('John Doe');
+    const [email, setEmail] = useState<string>('johndoe@example.com');
+    const [contact, setContact] = useState<string>('9999999999');
+    const [hostel, setHostel] = useState<string>('Zanskar');
 
     return (
         <div>
@@ -91,7 +91,12 @@ const EditAccount: React.FC = () => {
                 </IonList>
             </div>
             <div className="btn">
-                <IonButton shape="round" expand="full" color="primary" href="/myaccount">
+                <IonButton
+                    shape="round"
+                    expand="full"
+                    color="primary"
+                    href="/myaccount"
+                >
                     Save
                 </IonButton>
             </div>
