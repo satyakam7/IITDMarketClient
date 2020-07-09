@@ -24,6 +24,7 @@ import Home from './pages/home/home2';
 import Categories from './pages/categories/categories';
 import Chats from './pages/chats/chats';
 import MyAccount from './pages/myaccount/myaccount2';
+import EditAccount from './pages/myaccount/editaccount'
 /* new imports */
 import Register from './pages/register/register';
 import Health from './pages/Health/Health';
@@ -86,7 +87,8 @@ class App extends React.Component<AppProps> {
                             <Route path="/home" component={Home} />
                             <Route path="/categories" component={Categories} />
                             <Route path="/chats" component={Chats} />
-                            <Route path="/myaccount" component={MyAccount} />
+                            <Route exact path="/myaccount" component={MyAccount} />
+                            <Route exact path="/myaccount/edit" component={EditAccount} />
                             <Route path="/postad" component={PostAd} />
                             <Route
                                 path="/itemdetail/:id"
@@ -96,10 +98,7 @@ class App extends React.Component<AppProps> {
                                 path="/category/:categoryname"
                                 component={CategoryDetail}
                             />
-                            <Route
-                                path="/category/:categoryname"
-                                component={CategoryDetail}
-                            />
+                            
                             <Route
                                 path="/chatroom/:chatid"
                                 component={ChatRoom}

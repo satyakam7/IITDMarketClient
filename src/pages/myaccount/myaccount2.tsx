@@ -24,6 +24,7 @@ const Myaccount: React.FC<RouteComponentProps> = () => {
     return (
         <IonPage>
             <IonContent>
+                <div className="container">
                 <IonCard className="profile-header-card">
                     <IonButtons>
                         <IonBackButton defaultHref="/" />
@@ -37,7 +38,7 @@ const Myaccount: React.FC<RouteComponentProps> = () => {
                     <p>+91-9999999999</p>
                 </IonCard>
                 <IonCard className="profile-menu-card">
-                    <IonItem className="profile-menu">
+                    <IonItem className="profile-menu" href="/myaccount/edit">
                         <IonIcon
                             color="primary"
                             icon={createOutline}
@@ -77,7 +78,7 @@ const Myaccount: React.FC<RouteComponentProps> = () => {
                         />
                         <IonLabel>Contact Us</IonLabel>
                     </IonItem>
-                    <IonItem className="profile-menu">
+                    <IonItem className="profile-menu" lines="none">
                         <IonIcon
                             color="primary"
                             icon={logOutOutline}
@@ -86,6 +87,7 @@ const Myaccount: React.FC<RouteComponentProps> = () => {
                         <IonLabel>Logout</IonLabel>
                     </IonItem>
                 </IonCard>
+                </div>
             </IonContent>
         </IonPage>
     );

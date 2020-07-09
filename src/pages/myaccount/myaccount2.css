@@ -1,3 +1,7 @@
+.container{
+    margin: 10px;
+}
+
 .profile-header-card{
     border-radius: 15px;
     background-color: #3880ff ;
@@ -17,6 +21,7 @@
 }
 
 .profile-menu{
-    padding:0;
+    padding:10px 10px 10px 0;
     color: #92949c;
+    font-size: 18px;
 }
