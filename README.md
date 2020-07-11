@@ -2,6 +2,25 @@
 
 A marketplace to buy/sell within the IITD community
 
+## Functionality and workflow
+
+- To buy an item, you must be logged in with your kerberos id and password. On the home page you view all the categories of items, latest deals and trending offers from your hostel. Click on any item to go to that item's page. View pictures, seller information, reviews and then to buy an option initiate "Chat with seller" from the item page itself.
+
+<a href="https://ibb.co/8m5854G"><img src="https://i.ibb.co/BfZsZKv/home-1.png" alt="home-1" border="0" height="420" width="220"></a>
+<a href="https://ibb.co/gVHMkK9"><img src="https://i.ibb.co/Hd1D584/home-2.png" alt="home-2" border="0" height="420" width="220" ></a>
+<a href="https://ibb.co/1XYYL2g"><img src="https://i.ibb.co/KsccXyP/item-detail-1.png" alt="item-detail-1" border="0" height="420" width="220" ></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/KWHD8JQ/item-detail-2.png" alt="item-detail-2" border="0" height="420" width="220"></a>
+
+- To sell an item, you must be logged in with your kerberos id and password. On the home page click on the blue (+) button to go to the form. Fill in the form particulars, add one or more images and you're done .
+
+<a href="https://ibb.co/8m5854G"><img src="https://i.ibb.co/BfZsZKv/home-1.png" alt="home-1" border="0" height="420" width="250"></a>
+<a href="https://ibb.co/kGjtPc9"><img src="https://i.ibb.co/hgbST8Z/postad-form.png" alt="postad-form" border="0" height="420" width="250"></a>
+
+- Once logged in you can go the my account page to edit your personal details, check your wishlist, your past transactions, or even mail us your feedback.
+
+<a href="https://ibb.co/Z2tHWH6"><img src="https://i.ibb.co/8YTz6zD/profile-page.jpg" alt="profile-page" border="0" height="420" width="250"></a>
+
+
 ## Proposed features - v1.0
 - All updates to be complete overwriting in stage 1 later to be done atomically
 - **Login using kerberos oauth**, to allow only IITD students to access the portal.
