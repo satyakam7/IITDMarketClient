@@ -53,6 +53,11 @@ const authReducer = (state = initState, actions) => {
                 userItems: actions.data,
                 loading: false,
             };
+        case actionTypes.MISC_NOTIFS:
+            return {
+                ...state,
+                notifs: actions.notifs,
+            };
         default:
             return state;
     }

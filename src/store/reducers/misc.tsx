@@ -1,6 +1,10 @@
 import * as actionTypes from '../actions/actionTypes';
 
-const initState = {};
+const initState = {
+    loading: false,
+    error: null,
+    followCategories: [],
+};
 
 const miscReducer = (state = initState, actions) => {
     switch (actions.type) {
