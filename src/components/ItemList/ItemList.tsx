@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonCol, IonRow } from '@ionic/react';
+import { IonSlides, IonRow } from '@ionic/react';
 import ItemCard from '../ItemCard/ItemCard';
 
 import { Item } from '../../utils/types';
@@ -15,16 +15,16 @@ const ItemList: React.FC<ItemListProps> = (props) => {
     const itemList = items.map((item) => {
         if (category === 'all') {
             return (
-                <IonCol size="7" key={item.id}>
+                <IonSlides key={item.id}>
                     <ItemCard item={item} />
-                </IonCol>
+                </IonSlides>
             );
         }
         if (category === item.category) {
             return (
-                <IonCol size="7" key={item.id}>
+                <IonSlides key={item.id}>
                     <ItemCard item={item} />
-                </IonCol>
+                </IonSlides>
             );
         }
         return null;
