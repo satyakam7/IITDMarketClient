@@ -1,7 +1,6 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import axios from 'axios';
-import EventSource from 'eventsource';
 import qs from 'querystring';
 import { connect } from 'react-redux';
 import {
@@ -23,12 +22,15 @@ import {
 import Home from './pages/home/home2';
 import Categories from './pages/categories/categories';
 import Chats from './pages/chats/chats';
-import MyAccount from './pages/myaccount/myaccount';
+import MyAccount from './pages/myaccount/myaccount2';
+import EditAccount from './pages/myaccount/editaccount';
 /* new imports */
 import Register from './pages/register/register';
 import Health from './pages/Health/Health';
 import ItemDetail from './components/ItemDetail/ItemDetail';
 import CategoryDetail from './components/CategoryDetail/CategoryDetail';
+import ChatRoom from './components/ChatRoom/ChatRoom';
+import HS from './components/HiddenComponent/HiddenComponent';
 
 import PostAd from './components/PostAd/PostAd';
 /* Core CSS required for Ionic components to work properly */
@@ -60,13 +62,11 @@ type changeUserType = (user: User) => {};
 
 interface AppProps {
     changeUser: changeUserType;
+    username: string;
 }
 
 class App extends React.Component<AppProps> {
     componentDidMount() {
-        const { changeUser } = this.props;
-        const eventUser = new EventSource('http://localhost:5000/streamUser');
-        eventUser.onmessage = (e) => changeUser(e.data);
         const data = {
             username: 'ssh',
             password: '12345',
@@ -75,6 +75,7 @@ class App extends React.Component<AppProps> {
     }
 
     render() {
+        const { username } = this.props;
         return (
             <IonApp>
                 <IonReactRouter>
@@ -85,7 +86,16 @@ class App extends React.Component<AppProps> {
                             <Route path="/home" component={Home} />
                             <Route path="/categories" component={Categories} />
                             <Route path="/chats" component={Chats} />
-                            <Route path="/myaccount" component={MyAccount} />
+                            <Route
+                                exact
+                                path="/myaccount"
+                                component={MyAccount}
+                            />
+                            <Route
+                                exact
+                                path="/myaccount/edit"
+                                component={EditAccount}
+                            />
                             <Route path="/postad" component={PostAd} />
                             <Route
                                 path="/itemdetail/:id"
@@ -95,8 +105,14 @@ class App extends React.Component<AppProps> {
                                 path="/category/:categoryname"
                                 component={CategoryDetail}
                             />
+
+                            <Route
+                                path="/chatroom/:chatid"
+                                component={ChatRoom}
+                            />
                             <Redirect to="/home" />
                         </IonRouterOutlet>
+                        {username ? <HS /> : null}
                         <IonTabBar slot="bottom">
                             <IonTabButton tab="home" href="/home">
                                 <IonIcon size="small" icon={homeOutline} />
@@ -122,8 +138,12 @@ class App extends React.Component<AppProps> {
     }
 }
 
+const mapStateToProps = (state) => ({
+    username: state.auth.username,
+});
+
 const mapDispatchToProps = (dispatch) => ({
     changeUser: (data) => dispatch(authSuccess(data)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

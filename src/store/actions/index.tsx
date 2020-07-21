@@ -1,10 +1,8 @@
 export { authSuccess } from './auth';
 export {
     reportItem,
-    sellFinItemStart,
-    sellIniItemStart,
     sellFinItemSuccess,
     sellIniItemSuccess,
-    sellfniItem,
+    sellfinItem,
     selliniItem,
 } from './item';
