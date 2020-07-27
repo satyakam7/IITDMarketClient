@@ -7,6 +7,7 @@ import {
     IonButtons,
     IonBackButton,
     IonTitle,
+    IonButton,
 } from '@ionic/react';
 
 import { RouteComponentProps } from 'react-router';
