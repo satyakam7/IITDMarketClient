@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import {
     IonTitle,
     IonToolbar,
-    IonSelect,
-    IonSelectOption,
     IonInput,
     IonItem,
     IonLabel,
@@ -13,10 +11,8 @@ import {
 import './RegisterForm.css';
 
 const RegisterForm: React.FC = () => {
-    const [uname, setUname] = useState<string>();
     const [pass, setPass] = useState<string>();
     const [entryno, setEntryno] = useState<string>();
-    const [hostel, setHostel] = useState<string>();
 
     return (
         <div>
@@ -25,37 +21,6 @@ const RegisterForm: React.FC = () => {
             </IonToolbar>
             <div className="form">
                 <IonList>
-                    <IonItem>
-                        <IonLabel color="medium" position="floating">
-                            Username
-                        </IonLabel>
-                        <IonInput
-                            value={uname}
-                            onIonChange={(e) => {
-                                const data = e.detail.value;
-                                if (data !== null && data !== undefined) {
-                                    setUname(data);
-                                }
-                            }}
-                            required
-                        />
-                    </IonItem>
-                    <IonItem>
-                        <IonLabel color="medium" position="floating">
-                            Password
-                        </IonLabel>
-                        <IonInput
-                            type="password"
-                            value={pass}
-                            onIonChange={(e) => {
-                                const data = e.detail.value;
-                                if (data !== null && data !== undefined) {
-                                    setPass(data);
-                                }
-                            }}
-                            required
-                        />
-                    </IonItem>
                     <IonItem>
                         <IonLabel color="medium" position="floating">
                             Entry Number
@@ -71,22 +36,22 @@ const RegisterForm: React.FC = () => {
                             required
                         />
                     </IonItem>
+
                     <IonItem>
                         <IonLabel color="medium" position="floating">
-                            Hostel
+                            Password
                         </IonLabel>
-                        <IonSelect
-                            value={hostel}
-                            okText="Okay"
-                            cancelText="Dismiss"
-                            onIonChange={(e) => setHostel(e.detail.value)}
-                        >
-                            <IonSelectOption>Aravalli</IonSelectOption>
-                            <IonSelectOption>Girnar</IonSelectOption>
-                            <IonSelectOption>Jwalamukhi</IonSelectOption>
-                            <IonSelectOption>Himadri</IonSelectOption>
-                            <IonSelectOption>Zanskar</IonSelectOption>
-                        </IonSelect>
+                        <IonInput
+                            type="password"
+                            value={pass}
+                            onIonChange={(e) => {
+                                const data = e.detail.value;
+                                if (data !== null && data !== undefined) {
+                                    setPass(data);
+                                }
+                            }}
+                            required
+                        />
                     </IonItem>
                 </IonList>
             </div>

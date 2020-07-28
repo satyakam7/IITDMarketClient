@@ -3,7 +3,7 @@ import * as actionTypes from '../actions/actionTypes';
 const initState = {
     items: [
         {
-            _id: 1,
+            _id: '1',
             name: 'Asus Laptop',
             price: 40000,
             category: 'laptop',
@@ -14,7 +14,7 @@ const initState = {
         },
 
         {
-            _id: 2,
+            _id: '2',
             name: 'Hero Thunderbird',
             price: 4000,
             category: 'bicycle',
@@ -25,7 +25,7 @@ const initState = {
         },
 
         {
-            _id: 3,
+            _id: '3',
             name: 'Samsung S10e',
             price: 25000,
             category: 'mobile',
@@ -36,7 +36,7 @@ const initState = {
         },
 
         {
-            _id: 4,
+            _id: '4',
             name: 'Kurl On memory foam ',
             price: 2000,
             category: 'matteress',
@@ -47,7 +47,7 @@ const initState = {
         },
 
         {
-            _id: 5,
+            _id: '5',
             name: 'Order of the phoenix',
             price: 300,
             category: 'book',
