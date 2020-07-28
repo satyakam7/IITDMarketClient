@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { IonRow, IonCol, IonContent, IonPage } from '@ionic/react';
 import { connect } from 'react-redux';

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { IonCol, IonRow } from '@ionic/react';
 import ItemCard from '../ItemCard/ItemCard';
