@@ -23,18 +23,19 @@ class ItemCard extends React.Component<ItemCardProps> {
 
     render() {
         const { item } = this.props;
+
         return (
             <div>
                 <IonCard style={{ margin: '0' }} className="item-card">
                     <Link
-                        to={`/itemdetail/${item.id}`}
+                        to={`/itemdetail/${item._id}`}
                         style={{ textDecoration: 'none' }}
                     >
                         {/* <img src={item.image.url} alt="cardImg" /> */}
                     </Link>
                     <IonCardHeader className="item-card-header">
                         <Link
-                            to={`/itemdetail/${item.id}`}
+                            to={`/itemdetail/${item._id}`}
                             style={{ textDecoration: 'none', color: 'inherit' }}
                         >
                             <IonCardSubtitle>

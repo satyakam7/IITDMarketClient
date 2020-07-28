@@ -109,9 +109,9 @@ const ItemDetail: React.FC<
 const mapStateToProps = (state, ownProps) => {
     const { id } = ownProps.match.params;
     const { items } = state.item;
-    const item = items ? items[id - 1] : null;
+    const it = items.filter((item) => item._id === id)[0];
     return {
-        item,
+        it,
     };
 };
 

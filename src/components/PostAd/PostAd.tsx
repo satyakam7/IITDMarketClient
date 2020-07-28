@@ -38,7 +38,7 @@ class PostAd extends React.Component<PostAdProps, Item> {
     constructor(props) {
         super(props);
         this.state = {
-            id: 10,
+            _id: '10',
             name: '',
             date: new Date('00/00/0000'),
             condition: '',

@@ -22,7 +22,7 @@ const CategoryDetail: React.FC<
     const itemList = allItems.map((item) => {
         if (categoryname === item.category) {
             return (
-                <IonCol size="6" key={item.id}>
+                <IonCol size="6" key={item._id}>
                     <ItemCard item={item} />
                 </IonCol>
             );
