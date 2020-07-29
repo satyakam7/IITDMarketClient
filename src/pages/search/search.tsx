@@ -28,7 +28,7 @@ const Search: React.FC<
     const [currentPageState, setPageState] = React.useState(currentPage);
     const itemList = allItems.map((item) => {
         return (
-            <IonCol size="6" key={item.id}>
+            <IonCol size="6" key={item._id}>
                 <ItemCard item={item} />
             </IonCol>
         );
