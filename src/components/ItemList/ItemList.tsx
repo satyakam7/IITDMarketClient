@@ -9,6 +9,7 @@ interface ItemListProps {
     items: Item[];
     category: string;
 }
+// filter trending offers on the basis of time of the year important ****************************
 
 const ItemList: React.FC<ItemListProps> = (props) => {
     const { items, category } = props;
