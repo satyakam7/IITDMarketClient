@@ -22,6 +22,8 @@ import { connect } from 'react-redux';
 
 import { Item } from '../../utils/types';
 
+import { getReview, postReview } from '../../store/actions/review';
+
 interface MatchParams {
     id: string;
 }
@@ -115,5 +117,15 @@ const mapStateToProps = (state, ownProps) => {
         it,
     };
 };
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getReview: (id) => {
+            dispatch(getReview(id));
+        },
+        postReview: (data, id) => {
+            dispatch(postReview(data, id));
+        },
+    };
+};
 
-export default connect(mapStateToProps)(ItemDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemDetail);
