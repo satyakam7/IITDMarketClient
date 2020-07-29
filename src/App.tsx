@@ -18,7 +18,6 @@ import {
     gridOutline,
     homeOutline,
     personOutline,
-    search,
 } from 'ionicons/icons';
 import Home from './pages/home/home2';
 import Categories from './pages/categories/categories';

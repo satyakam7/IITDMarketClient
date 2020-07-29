@@ -12,7 +12,6 @@ import {
     IonIcon,
     IonFooter,
     IonInput,
-    IonButton,
 } from '@ionic/react';
 import { arrowBackOutline, paperPlane } from 'ionicons/icons';
 import Message from './Message';
@@ -49,10 +48,6 @@ const ChatRoom: React.FC = () => (
                     />
                     <IonMenuButton slot="end" menu="first" color="light" />
                     <IonText>Item Name with Username</IonText>
-
-                    <IonButton slot="end" color="secondary">
-                        Mark as Sold
-                    </IonButton>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
