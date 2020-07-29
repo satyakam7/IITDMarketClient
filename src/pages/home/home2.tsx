@@ -34,37 +34,21 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
 
 import { Item } from '../../utils/types';
-import { getItem } from '../../store/actions/item';
 
 interface HomeProps {
     items: Item[];
 }
-interface StateInterface {
-    category: string;
-}
-
 const slideOpts = {
     initialSlide: 0,
     slidesPerView: 1,
     speed: 400,
 };
-class Home extends React.Component<
-    RouteComponentProps & HomeProps,
-    StateInterface
-> {
+class Home extends React.Component<RouteComponentProps & HomeProps> {
     // eslint-disable-next-line react/destructuring-assignment
     // eslint-disable-next-line react/state-in-constructor
-    // componentWillMount() {
-    //     this.props.getItem()
-
-    // }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            category: 'all',
-        };
-    }
+    state = {
+        category: 'all',
+    };
 
     render() {
         const { category } = this.state;
@@ -210,16 +194,10 @@ class Home extends React.Component<
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStatetoProps = (state) => {
     return {
         items: state.item.items,
     };
 };
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getItem: (s, page, cat) => {
-            dispatch(getItem(s, page, cat));
-        },
-    };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
+export default connect(mapStatetoProps)(Home);

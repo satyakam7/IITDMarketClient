@@ -18,7 +18,6 @@ import {
     gridOutline,
     homeOutline,
     personOutline,
-    search,
 } from 'ionicons/icons';
 import Home from './pages/home/home2';
 import Categories from './pages/categories/categories';
@@ -32,7 +31,7 @@ import ItemDetail from './components/ItemDetail/ItemDetail';
 import CategoryDetail from './components/CategoryDetail/CategoryDetail';
 import ChatRoom from './components/ChatRoom/ChatRoom';
 import HS from './components/HiddenComponent/HiddenComponent';
-import Search from './pages/search/search';
+
 import PostAd from './components/PostAd/PostAd';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -110,10 +109,6 @@ class App extends React.Component<AppProps> {
                             <Route
                                 path="/chatroom/:chatid"
                                 component={ChatRoom}
-                            />
-                            <Route
-                                path="/search/:searchtext"
-                                component={Search}
                             />
                             <Redirect to="/home" />
                         </IonRouterOutlet>

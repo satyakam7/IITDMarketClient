@@ -12,6 +12,7 @@ import {
     IonIcon,
     IonFooter,
     IonInput,
+    IonButtons,
     IonButton,
 } from '@ionic/react';
 import { arrowBackOutline, paperPlane } from 'ionicons/icons';

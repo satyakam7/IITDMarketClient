@@ -59,7 +59,7 @@ const initState = {
     ],
     category: 'all',
     currentPage: 1,
-    page: null,
+    pages: null,
     search: '',
     noMatch: null,
     error: null,
