@@ -11,6 +11,7 @@ import {
     IonCard,
     IonSlides,
     IonSlide,
+    IonButton,
 } from '@ionic/react';
 import {
     add,
@@ -189,7 +190,10 @@ class Home extends React.Component<
                     <IonToolbar>
                         <IonText>
                             <h2 className="ion-padding">
-                                <strong>Offers From your Hostel</strong>
+                                <strong>Offers From your Hostel</strong> <br />
+                                <IonButton href="/hostelpage" color="tertiary">
+                                    See More
+                                </IonButton>
                             </h2>
                         </IonText>
 

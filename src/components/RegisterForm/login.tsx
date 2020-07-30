@@ -10,50 +10,20 @@ import {
 } from '@ionic/react';
 import './RegisterForm.css';
 
-const RegisterForm: React.FC = () => {
+const LoginForm: React.FC = () => {
     const [pass, setPass] = useState<string>();
     const [entryno, setEntryno] = useState<string>();
 
     return (
         <div>
             <IonToolbar>
-                <IonTitle color="primary">Join us today !</IonTitle>
+                <IonTitle color="primary">Login!</IonTitle>
             </IonToolbar>
             <div className="form">
                 <IonList>
                     <IonItem>
                         <IonLabel color="medium" position="floating">
-                            Name
-                        </IonLabel>
-                        <IonInput
-                            value={entryno}
-                            onIonChange={(e) => {
-                                const data = e.detail.value;
-                                if (data !== null && data !== undefined) {
-                                    setEntryno(data);
-                                }
-                            }}
-                            required
-                        />
-                    </IonItem>
-                    <IonItem>
-                        <IonLabel color="medium" position="floating">
-                            Entry Number
-                        </IonLabel>
-                        <IonInput
-                            value={entryno}
-                            onIonChange={(e) => {
-                                const data = e.detail.value;
-                                if (data !== null && data !== undefined) {
-                                    setEntryno(data);
-                                }
-                            }}
-                            required
-                        />
-                    </IonItem>
-                    <IonItem>
-                        <IonLabel color="medium" position="floating">
-                            Phone Number
+                            Username
                         </IonLabel>
                         <IonInput
                             value={entryno}
@@ -87,11 +57,11 @@ const RegisterForm: React.FC = () => {
             </div>
             <div className="btn">
                 <IonButton shape="round" expand="full" color="primary">
-                    Register
+                    Login
                 </IonButton>
             </div>
         </div>
     );
 };
 
-export default RegisterForm;
+export default LoginForm;

@@ -33,6 +33,7 @@ import ChatRoom from './components/ChatRoom/ChatRoom';
 import HS from './components/HiddenComponent/HiddenComponent';
 import Search from './pages/search/search';
 import PostAd from './components/PostAd/PostAd';
+import login from './components/RegisterForm/login';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -118,6 +119,7 @@ class App extends React.Component<AppProps> {
                                 component={Search}
                             />
                             <Route path="/mytransactions" component={myads} />
+                            <Route path="/login" component={login} />
                             <Route path="/myads" component={mytransactions} />
                             <Route path="/hostelpage" component={hostelpage} />
 
