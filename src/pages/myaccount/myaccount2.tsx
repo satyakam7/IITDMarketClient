@@ -57,7 +57,7 @@ const Myaccount: React.FC<RouteComponentProps> = () => {
                             />
                             <IonLabel>My Wishlist</IonLabel>
                         </IonItem>
-                        <IonItem className="profile-menu">
+                        <IonItem className="profile-menu" href="/myads">
                             <IonIcon
                                 color="primary"
                                 icon={addCircleOutline}
@@ -65,7 +65,10 @@ const Myaccount: React.FC<RouteComponentProps> = () => {
                             />
                             <IonLabel>My Ads</IonLabel>
                         </IonItem>
-                        <IonItem className="profile-menu">
+                        <IonItem
+                            className="profile-menu"
+                            href="/mytransactions"
+                        >
                             <IonIcon
                                 color="primary"
                                 icon={checkmarkCircleOutline}

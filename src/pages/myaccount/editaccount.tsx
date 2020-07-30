@@ -13,7 +13,8 @@ import {
 import './editaccount.css';
 
 const EditAccount: React.FC = () => {
-    const [name, setName] = useState<string>('John Doe');
+    const [fname, setFName] = useState<string>('John');
+    const [lname, setLName] = useState<string>('Doe');
     const [email, setEmail] = useState<string>('johndoe@example.com');
     const [contact, setContact] = useState<string>('9999999999');
     const [hostel, setHostel] = useState<string>('Zanskar');
@@ -27,14 +28,29 @@ const EditAccount: React.FC = () => {
                 <IonList>
                     <IonItem>
                         <IonLabel color="medium" position="floating">
-                            Full name
+                            First Name
                         </IonLabel>
                         <IonInput
-                            value={name}
+                            value={fname}
                             onIonChange={(e) => {
                                 const data = e.detail.value;
                                 if (data !== null && data !== undefined) {
-                                    setName(data);
+                                    setFName(data);
+                                }
+                            }}
+                            required
+                        />
+                    </IonItem>
+                    <IonItem>
+                        <IonLabel color="medium" position="floating">
+                            Last Name
+                        </IonLabel>
+                        <IonInput
+                            value={lname}
+                            onIonChange={(e) => {
+                                const data = e.detail.value;
+                                if (data !== null && data !== undefined) {
+                                    setLName(data);
                                 }
                             }}
                             required

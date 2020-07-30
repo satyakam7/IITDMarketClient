@@ -20,6 +20,7 @@ import {
     IonIcon,
     IonCheckbox,
     IonText,
+    IonTextarea,
 } from '@ionic/react';
 
 import { connect } from 'react-redux';
@@ -216,8 +217,7 @@ class PostAd extends React.Component<PostAdProps, Item> {
                                 <IonLabel color="medium" position="floating">
                                     Description
                                 </IonLabel>
-                                <IonInput
-                                    type="text"
+                                <IonTextarea
                                     id="description"
                                     onIonChange={(e) => {
                                         const data = e.detail.value;
@@ -270,7 +270,10 @@ class PostAd extends React.Component<PostAdProps, Item> {
                                         })
                                     }
                                 />
-                                <IonLabel color="medium">
+                                <IonLabel
+                                    style={{ paddingLeft: '5px' }}
+                                    color="medium"
+                                >
                                     Post Anonymously
                                 </IonLabel>
                             </IonItem>

@@ -4,7 +4,7 @@ import { IonRow, IonCol, IonContent, IonPage } from '@ionic/react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import ItemCard from '../ItemCard/ItemCard';
-
+import { getItem } from '../../store/actions/item';
 import { Item } from '../../utils/types';
 
 interface CategoryDetailProps {
@@ -48,5 +48,12 @@ const mapStateToProps = (state) => {
         allItems,
     };
 };
-
-export default connect(mapStateToProps)(CategoryDetail);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getItem: (page, cat) => {
+            dispatch(getItem('', page, cat));
+        },
+    };
+};
+// upvote and downlote actions
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryDetail);

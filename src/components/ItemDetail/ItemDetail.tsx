@@ -22,7 +22,8 @@ import { connect } from 'react-redux';
 
 import { Item } from '../../utils/types';
 
-import { getReview, postReview } from '../../store/actions/review';
+import { getReview } from '../../store/actions/review';
+import { singleItemDetail } from '../../store/actions/item';
 
 interface MatchParams {
     id: string;
@@ -35,7 +36,9 @@ interface ItemDetailProps {
 const ItemDetail: React.FC<
     RouteComponentProps<MatchParams> & ItemDetailProps
 > = (props) => {
+    console.log(props);
     const { it } = props;
+
     return (
         <IonPage>
             <IonHeader className="ion-no-border" />
@@ -51,7 +54,7 @@ const ItemDetail: React.FC<
                             {it.name.toUpperCase()}
                         </IonCardTitle>
                         <IonToolbar style={{ textAlign: 'center' }}>
-                            {/*  <img src={item.image} alt={item.name} /> */}
+                            <img src={it.image.url} alt={it.name} />
                         </IonToolbar>
                     </IonCardHeader>
                     <IonCardContent>
@@ -79,7 +82,12 @@ const ItemDetail: React.FC<
                                 Seller Hostel
                             </h4>
                         </IonText>
-                        <IonButton style={{ marginTop: '1em' }} expand="block">
+                        {/* insert :id */}
+                        <IonButton
+                            href="/chatroom/123"
+                            style={{ marginTop: '1em' }}
+                            expand="block"
+                        >
                             Chat With Seller
                         </IonButton>
                     </IonCardContent>
@@ -119,12 +127,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        getReview: (id) => {
-            dispatch(getReview(id));
-        },
-        postReview: (data, id) => {
-            dispatch(postReview(data, id));
-        },
+        getReview: (id) => dispatch(getReview(id)),
+        singleItemDetail: (id) => dispatch(singleItemDetail(id)),
     };
 };
 
