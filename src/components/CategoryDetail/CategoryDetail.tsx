@@ -6,6 +6,7 @@ import { RouteComponentProps } from 'react-router';
 import ItemCard from '../ItemCard/ItemCard';
 import { getItem } from '../../store/actions/item';
 import { Item } from '../../utils/types';
+import { upvoteReview, downvoteReview } from '../../store/actions/review';
 
 interface CategoryDetailProps {
     allItems: Item[];
@@ -52,6 +53,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getItem: (page, cat) => {
             dispatch(getItem('', page, cat));
+        },
+        upvoteReview: (id, reviewId) => {
+            dispatch(upvoteReview(id, reviewId));
+        },
+        downvoteReview: (id, reviewId) => {
+            dispatch(downvoteReview(id, reviewId));
         },
     };
 };

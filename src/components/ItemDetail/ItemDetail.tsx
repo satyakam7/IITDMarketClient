@@ -111,6 +111,8 @@ const ItemDetail: React.FC<
                         <IonCardSubtitle>Reviews</IonCardSubtitle>
                     </IonCardHeader>
                     <IonText />
+                    <IonButton color="primary">Upvote Review</IonButton>
+                    <IonButton color="danger">DownVote Review</IonButton>
                 </IonCard>
             </IonContent>
         </IonPage>
