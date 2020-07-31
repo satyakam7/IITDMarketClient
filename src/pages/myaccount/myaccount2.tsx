@@ -19,28 +19,42 @@ import {
     callOutline,
     logOutOutline,
 } from 'ionicons/icons';
+import { connect } from 'react-redux';
 
-const Myaccount: React.FC<RouteComponentProps> = () => {
+interface UserProps {
+    avatar: string;
+    contact_number: string;
+    hostel: string;
+    firstName: string;
+    lastName: string;
+}
+
+const Myaccount: React.FC<RouteComponentProps & UserProps> = (props) => {
+    const { firstName, lastName, contact_number } = props;
     return (
         <IonPage>
             <IonContent>
                 <div className="container">
                     <IonCard className="profile-header-card">
                         <IonButtons>
-                            <IonBackButton defaultHref="/" />
+                            <IonBackButton style={{}} defaultHref="/" />
                         </IonButtons>
                         <img
                             className="profile-header-img"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQdc_pViMeba37-qxWAWLBm1Bn5XeQWZoadWA&usqp=CAU"
                             alt="profile"
                         />
-                        <h5>John Doe</h5>
-                        <p>+91-9999999999</p>
+                        <h5>
+                            {firstName} {lastName}
+                        </h5>
+                        <p>{contact_number}</p>
                     </IonCard>
                     <IonCard className="profile-menu-card">
                         <IonItem
                             className="profile-menu"
-                            href="/myaccount/edit"
+                            onClick={() =>
+                                props.history.push('/myaccount/edit')
+                            }
                         >
                             <IonIcon
                                 color="primary"
@@ -99,4 +113,13 @@ const Myaccount: React.FC<RouteComponentProps> = () => {
     );
 };
 
-export default Myaccount;
+const mapStateToProps = (state) => {
+    return {
+        avatar: state.auth.avatar,
+        contact_number: state.auth.contact_number,
+
+        firstName: state.auth.firstName,
+        lastName: state.auth.lastName,
+    };
+};
+export default connect(mapStateToProps)(Myaccount);

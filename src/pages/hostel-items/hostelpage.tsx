@@ -5,13 +5,13 @@ import { RouteComponentProps } from 'react-router';
 import ItemCard from '../../components/ItemCard/ItemCard';
 
 import { Item } from '../../utils/types';
-import { getItem } from '../../store/actions/item';
+import { getHostelItem } from '../../store/actions/item';
 
-type getItemType = (search: string, page: number, category: string) => void;
+type getHostelItemType = (hostel: string) => void;
 
 interface CategoryDetailProps {
     allItems: Item[];
-    getItem: getItemType;
+    getHostelItem: getHostelItemType;
     currentPage: number;
 }
 
@@ -23,7 +23,12 @@ interface MatchParams {
 const Hostel: React.FC<
     RouteComponentProps<MatchParams> & CategoryDetailProps
 > = (props) => {
-    const { allItems, match, getItem: getItemT, currentPage } = props;
+    const {
+        allItems,
+        match,
+        getHostelItem: getHostelItemT,
+        currentPage,
+    } = props;
     const { searchtext } = match.params;
     const [currentPageState, setPageState] = React.useState(currentPage);
     const itemList = allItems.map((item) => {
@@ -35,8 +40,8 @@ const Hostel: React.FC<
     });
 
     React.useEffect(() => {
-        getItemT(searchtext, currentPageState, 'all');
-    }, [currentPageState, getItemT, searchtext]);
+        getHostelItemT('all');
+    }, [currentPageState, getHostelItemT, searchtext]);
     return (
         <IonPage>
             <IonContent>
@@ -58,8 +63,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getItem: (s, page, cat) => {
-            dispatch(getItem(s, page, cat));
+        getHostelItem: (hostel) => {
+            dispatch(getHostelItem(hostel));
         },
     };
 };

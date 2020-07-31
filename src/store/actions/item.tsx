@@ -69,6 +69,19 @@ export const getItem = (search, page, cat) => (dispatch) => {
         });
 };
 
+export const getHostelItem = (hostel) => (dispatch) => {
+    dispatch(itemStart());
+    const url = `/item/hostel/${hostel}`;
+    axios
+        .get(url)
+        .then((res) => {
+            dispatch(getItemSuccess(res.data, 'all'));
+        })
+        .catch((err) => {
+            dispatch(itemFail(err));
+        });
+};
+
 export const postItem = (data) => (dispatch) => {
     dispatch(itemStart());
     axios

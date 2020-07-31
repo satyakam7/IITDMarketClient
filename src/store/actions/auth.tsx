@@ -27,6 +27,9 @@ export const userItems = (data) => ({
     type: actionTypes.USER_ITEM,
     data,
 });
+export const userUpdated = () => ({
+    type: actionTypes.AUTH_UPDATED,
+});
 
 export const auth = (data, isSignUp: boolean) => (dispatch) => {
     dispatch(authStart());
@@ -66,6 +69,39 @@ export const renderUser = (id) => (dispatch) => {
         .then((res) => {
             dispatch(authSuccess(res.data.user));
             dispatch(userItems(res.data.item));
+        })
+        .catch((err) => {
+            dispatch(authFail(err));
+        });
+};
+export const userUpdate = (
+    id,
+    firstName,
+    lastName,
+    email,
+    entry_number,
+    hostel,
+    contact_number,
+    username,
+    description,
+    avatar
+) => (dispatch) => {
+    dispatch(authStart());
+    const updateDetail = {
+        firstName,
+        lastName,
+        email,
+        entry_number,
+        hostel,
+        contact_number,
+        username,
+        description,
+        avatar,
+    };
+    axios
+        .put(`/users/${id}`, qs.stringify(updateDetail))
+        .then(() => {
+            dispatch(userUpdated());
         })
         .catch((err) => {
             dispatch(authFail(err));

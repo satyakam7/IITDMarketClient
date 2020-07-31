@@ -1,6 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initState = {
+    _id: null,
     loading: false,
     error: null,
     username: 'johndoe',
@@ -57,6 +58,11 @@ const authReducer = (state = initState, actions) => {
             return {
                 ...state,
                 notifs: actions.notifs,
+            };
+        case actionTypes.AUTH_UPDATED:
+            return {
+                ...state,
+                loading: false,
             };
         default:
             return state;

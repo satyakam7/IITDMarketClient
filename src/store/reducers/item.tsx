@@ -33,6 +33,7 @@ const initState = {
             date: new Date('01/01/2020'),
             condition: 'Excellent',
             description: 'Demo description',
+            hostel: 'Zankar',
         },
 
         {
