@@ -25,9 +25,11 @@ const Search: React.FC<
 > = (props) => {
     const { allItems, match, getItem: getItemT, currentPage } = props;
     const { searchtext } = match.params;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [currentPageState, setPageState] = React.useState(currentPage);
     const itemList = allItems.map((item) => {
         return (
+            // eslint-disable-next-line no-underscore-dangle
             <IonCol size="6" key={item._id}>
                 <ItemCard item={item} />
             </IonCol>
