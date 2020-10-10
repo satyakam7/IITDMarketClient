@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { IonRow, IonCol, IonContent, IonPage } from '@ionic/react';
 import { connect } from 'react-redux';
@@ -61,7 +63,7 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) =>{
     return {
         getHostelItem: (hostel) => {
             dispatch(getHostelItem(hostel));

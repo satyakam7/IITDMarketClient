@@ -11,6 +11,7 @@ const initState = {
             date: new Date('01/01/2020'),
             condition: 'Excellent',
             description: 'Demo description',
+            hostel: 'ZANSKAR',
         },
 
         {
@@ -22,6 +23,7 @@ const initState = {
             date: new Date('01/01/2020'),
             condition: 'Excellent',
             description: 'Demo description',
+            hostel: 'SHIVALIK',
         },
 
         {
@@ -33,7 +35,7 @@ const initState = {
             date: new Date('01/01/2020'),
             condition: 'Excellent',
             description: 'Demo description',
-            hostel: 'Zankar',
+            hostel: 'KUMAON',
         },
 
         {
@@ -45,6 +47,7 @@ const initState = {
             date: new Date('01/01/2020'),
             condition: 'Excellent',
             description: 'Demo description',
+            hostel: 'JWALAMUKHI',
         },
 
         {
@@ -56,6 +59,7 @@ const initState = {
             date: new Date('01/01/2020'),
             condition: 'Excellent',
             description: 'Demo description',
+            hostel: 'NILGIRI',
         },
     ],
     category: 'all',
